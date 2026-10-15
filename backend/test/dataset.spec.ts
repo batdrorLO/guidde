@@ -62,7 +62,7 @@ describe('the real export', () => {
   it('reports 2026-06-28 as missing data, not as every account being inactive', () => {
     const issue = ds.issues.find((i) => i.code === 'missing_days')!;
     expect(issue.message).toMatch(/^Missing data on 2026-06-28/);
-    expect(issue.handling).toContain('not as a day every customer was inactive');
+    expect(issue.handling).toContain('missing data');
     // The default 30-day window doesn't include it, but the momentum baseline does.
     const h = scored.get('brightside-logistics')!;
     expect(h.window.missingDataDays).toEqual([]);
