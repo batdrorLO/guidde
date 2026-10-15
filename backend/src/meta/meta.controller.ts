@@ -1,7 +1,8 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { Public } from '../auth/auth.guard';
 import { DatasetService } from '../data/dataset.service';
 import { HealthService } from '../health/health.service';
+import { settingsFromQuery } from '../health/settings.query';
 
 @Controller()
 export class MetaController {
@@ -21,10 +22,10 @@ export class MetaController {
     return { status: loaded ? 'ok' : 'degraded', data: { loaded } };
   }
 
-  /** Portfolio totals per tier, CSM list, snapshot date. */
+  /** Portfolio totals per status, CSM list, reference date and analysis window. Takes ?days=&minTenure=. */
   @Get('summary')
-  summary() {
-    return this.health.summary();
+  summary(@Query() raw: Record<string, string | undefined>) {
+    return this.health.summary(settingsFromQuery(raw));
   }
 
   /** Every data problem found in the export and how it was handled. */

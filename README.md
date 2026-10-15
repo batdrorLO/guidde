@@ -38,11 +38,11 @@ The data lives in `data/` (`accounts.json`, `usage_events.json`). To point the A
 
 | Endpoint | Returns |
 |---|---|
-| `GET /api/accounts?tier=&plan=&csm=&q=&sort=&order=` | Scored accounts. `sort` is one of `priority` (default), `score`, `arr`, `name`, `lastActivity`. Invalid values return 400. |
-| `GET /api/accounts/:slug` | One account in full: the pillars, flags, weekly activity, and per-user, per-workspace and recent-event lists |
-| `GET /api/summary` | Count and ARR per tier, list of CSMs, snapshot date |
+| `GET /api/accounts?days=&minTenure=&status=&plan=&csm=&q=&sort=&order=` | Scored accounts for the given settings (`days` 7–180, default 30; `minTenure` 0–730, default 30). `status` is `healthy`, `watch`, `at_risk`, `onboarding` or `insufficient_data`; `tier` is still accepted as an alias. `sort` is one of `priority` (default), `score`, `arr`, `name`, `lastActivity`. Invalid values return 400. |
+| `GET /api/accounts/:slug?days=&minTenure=` | One account in full: score, score tier, status, overrides with reasons, the window used, activity against its plan, the pillars with explanations, flags, weekly activity, and per-user, per-workspace and recent-event lists |
+| `GET /api/summary?days=&minTenure=` | Count and ARR per status, the settings and window actually applied, the reference date, and the list of CSMs |
 | `GET /api/data-quality` | Every data issue found in the export and how it was handled |
-| `GET /api/methodology` | The live scoring config, which the methodology page renders |
+| `GET /api/methodology` | The live scoring config (presets, limits, plan expectations, thresholds). The settings bar and the methodology page both render from it. |
 | `GET /api/status` | **Public.** Always returns 200 while the API is running. `status` is `ok`, or `degraded` if the export couldn't be loaded (the reason is shown only to signed-in users). |
 | `POST /api/auth/login`, `POST /api/auth/logout`, `GET /api/auth/me` | Authentication; see below. Every other endpoint needs a signed-in CS user and returns `401` or `403` otherwise. |
 
@@ -123,28 +123,96 @@ To configure the logs:
 
 ## What "account health" means
 
-> **A healthy account is one where people keep coming back, keep making and watching guides, the people who adopted it are still around, and usage isn't fading.**
+> **A healthy account is one where people keep coming back, keep making and watching guides, the people who adopted it are still around, and usage isn't fading, measured against what its plan should be doing.**
 
-Each score is 0–100. It is computed over the **last 30 days** and compared against **targets that scale with the plan**, so a $200k Enterprise contract is held to a higher bar than a free team. "Now" is the latest event in the export (2026-09-13), not today's date.
+> ⚠️ **Every target and threshold below is an initial business assumption, not a validated churn predictor.** They come from the product brief and a 25-account sample. Before anyone relies on them, they must be calibrated against real renewal, downgrade and churn outcomes.
 
-| Pillar | Pts | What it measures | Why |
+All scoring happens in one place: pure functions in [`backend/src/health/health-scoring.ts`](backend/src/health/health-scoring.ts), with every number in [`scoring.config.ts`](backend/src/health/scoring.config.ts). The UI only sends the CSM's settings and displays what the API returns, so the frontend and backend can't disagree about a score.
+
+### Settings a CSM controls
+
+These appear in the bar under the header, on every page. They're stored in the URL (`?days=&minTenure=`), like the list filters, so they survive a refresh and a shared link reproduces the exact view. Defaults are left out of the URL.
+
+| Setting | Default | Allowed values | Effect |
 |---|---|---|---|
-| **Activity** | 30 | Distinct days with any activity. Targets: Free 3, Pro 6, Enterprise 8. | Rewards consistency over volume, so one busy afternoon can't hide three silent weeks. The strongest leading indicator of churn is people stopping showing up. |
-| **Value loop** | 30 | Half of the points come from guides created or shared. The other half come from guides viewed. Targets scale per plan. | Guidde's value is the create → share → view loop. Content nobody watches is failing, and so is an audience with no new content. Logins and invites don't count here: logging in isn't the same as getting value. |
-| **User retention** | 20 | Users active in the last 30 days ÷ all users seen in the 90-day export. 60% or more earns full credit. | Catches the account whose champion is still active while everyone else has drifted away. It's a ratio, so it's fair to both small and large teams. |
-| **Momentum** | 20 | Events per day in the last 30 days compared with the account's own prior 60 days. Flat or growing earns full credit; a 60% drop earns none. | Compares each account against its own baseline rather than against other accounts. +1 smoothing stops small accounts from swinging wildly. |
+| **Analysis period** (`days`) | 30 | Presets 7 / 14 / 30 / 60 / 90, or any whole number from 7 to 180 | Recalculates all four pillars, the score, the status, the priority, the summary tiles, the queue, the account page explanations and the chart marker |
+| **Minimum tenure** (`minTenure`) | 30 | Whole number from 0 to 730 | Accounts younger than this aren't scored (see below) |
 
-**Overrides**
-- **Plan downgrade** (events show a lower plan than the contract): −20 points, and the account can never be Healthy. A downgrade means ARR is either already shrinking or about to.
-- **Dormant** (no activity for more than 21 days): always At Risk, whatever the other pillars say.
+Invalid values, typed into the bar or put directly in the URL, are rejected with a readable message. The API returns `400 invalid_setting`.
 
-**Context flags** (shown, but they don't change the score): Onboarding (contract less than 180 days old), Low signal (fewer than 8 events), Multi-workspace.
+### Reference date and windows
 
-**Tiers:** Healthy ≥ 70 · Watch 45–69 · At risk < 45.
+- **"Now" is the latest event in the export** (2026-09-13 for this file), never today's date. Opening the dashboard next year gives the same results.
+- **Current window:** the *N* calendar days (UTC) ending on the reference day, **with both ends included**. At 30 days, that's 2026-08-15 to 2026-09-13.
+- **Baseline window**, used for momentum: the *2N* calendar days immediately before the current window (at 30 days, 2026-06-16 to 2026-08-14). The two never overlap.
+- **Observable days:** a day only counts if the export can actually show it. Two kinds of day are left out: days before the export starts, and ingestion gaps. An ingestion gap is a day with zero events from *any* account; there's one, 2026-06-28. Neither is ever counted as an inactive day.
+- **Limitation:** the export has no explicit coverage metadata, so a gap can only be detected when *every* account is silent. If ingestion failed for one workspace only, that can't be distinguished from real inactivity.
 
-**Priority** (the default sort order) is `(100 − score) × log10(ARR + 10)`. ARR is deliberately **not** part of the health score, since a $0 Free account can be perfectly healthy. But a CSM's time should go to unhealthy accounts with the most ARR, so the list is ranked that way. The log scale means ARR matters without drowning out health.
+### Minimum tenure
 
-All weights, targets and thresholds live in [`backend/src/health/scoring.config.ts`](backend/src/health/scoring.config.ts). On this snapshot the model gives 6 At Risk accounts, 5 Watch and 14 Healthy.
+Tenure is the number of whole days from `contract_start_date` (in `accounts.json`, the contract of record) to the reference day. Activity events are never used to guess it.
+
+- **Tenure below the minimum → Onboarding.** The account gets no score, no tier and no priority, and it's left out of the Healthy / Watch / At Risk counts and the risk queue. It's listed last, showing its tenure and the reason. A new account is never labelled Healthy or At Risk just for being new.
+- **Unusable start date → Not enough data**, for example an impossible date like 2025-02-30. The account is not assumed to have met the minimum.
+- Every account in this export is over 120 days old, so with the default of 30 all of them are scored. Set the minimum to 180 and four accounts become Onboarding.
+
+The separate **Onboarding** context flag (contract under 180 days old) is still shown on accounts that *are* scored. It never affects the score.
+
+### The four pillars (0–100)
+
+| Pillar | Max | Formula |
+|---|---|---|
+| **Activity** | 30 | `rate = activeDays ÷ observableDays`, where an active day is any day with an event of any type. Points = `30 × min(rate ÷ planFullCreditRate, 1)` |
+| **Value loop** | 30 | Two halves, worth 15 points each. **Produce:** `guide_created + guide_shared`. **Consume:** `guide_viewed`. Each half = `15 × min(count ÷ windowTarget, 1)`, where `windowTarget = targetPer30Days × N ÷ 30`. Logins and invites never count. |
+| **User retention** | 20 | `rate = usersActiveInWindow ÷ uniqueUsersInWholeExport`. Points = `20 × min(rate ÷ 0.60, 1)`. If the account has no users at all, it gets 0 points, never full retention. |
+| **Momentum** | 20 | Compares events per observable day in the current window with the baseline window, with +1 smoothing on both counts. A ratio of ≥ 1.0 earns full credit, ≤ 0.4 (a drop of 60% or more) earns 0, and the points scale linearly in between. No events in the current window → 0. **Insufficient baseline:** if less than 50% of the baseline is observable, momentum can't be measured fairly and gets a **neutral 10/20**, which neither invents growth nor invents decline. This happens for periods longer than about 44 days, because the export only goes back 89 days. The account page explains it when it happens. |
+
+### Plan expectations
+
+| Plan | Full Activity credit | **At Risk below** | Produce target / 30 days | Consume target / 30 days |
+|---|---|---|---|---|
+| Free | 20% | **15%** | 2 | 2 |
+| Pro | 40% | **25%** | 3 | 4 |
+| Enterprise | 60% | **40%** | 4 | 5 |
+
+For example, take an account active on 10 of 30 observable days, which is 33.3%. On Free that earns full Activity credit and doesn't trigger the activity rule. On Enterprise it's **At Risk**, even if every other pillar is perfect and its numeric score is 87.
+
+### Rule precedence
+
+1. Resolve the plan, reference date, tenure and observable days.
+2. If the account is below minimum tenure → **Onboarding**. If its tenure is unknown, its plan is unknown, or no day is observable → **Not enough data**. In both cases, stop here: no score.
+3. Compute the four pillars.
+4. **Plan downgrade** (the latest events show a lower plan than the contract): −20 points, with the score clamped to 0–100.
+5. **Score tier** from that score: Healthy ≥ 70 · Watch 45–69 · At Risk < 45.
+6. **Hard rules.** Every rule that applies is reported, and the numeric score is never changed to force a status:
+   - **Dormant**: no events for more than 21 days before the reference date → **At Risk**. This rule is separate from a low activity rate.
+   - **Activity below the plan's At Risk threshold** → **At Risk**.
+   - **Downgrade** → the account **can't be Healthy**. If its score would make it Healthy, it becomes Watch.
+
+The API keeps the three concepts separate:
+- `score`: the number.
+- `scoreTier`: what the number alone gives.
+- `status`: the final, effective status.
+
+When `status` differs from `scoreTier`, `statusReason` explains why. The account page shows "Score alone: Healthy → At Risk by rule", followed by every reason that applied.
+
+**Context flags** (Onboarding under 180 days, Low signal under 8 events, Multiple workspaces) are informational only and never change the score.
+
+### Priority (the work queue)
+
+`priority = (100 − score) × log10(ARR + 10)`, using the score *after* the downgrade penalty. ARR is never part of the health score. The default sort groups accounts by **effective status**: At Risk first, then Watch, then Healthy. Within each group it ranks by priority. That way an account a rule forced into At Risk sits with the other At Risk accounts instead of below Watch accounts. Onboarding and Not-enough-data accounts have no priority and come last.
+
+### What this gives on the real export
+
+At the defaults (30 days, minimum tenure 30): **15 At Risk, 0 Watch, 10 Healthy**.
+
+The plan-specific activity rule drives most of that. Activity in this sample is sparse: most accounts are active on 10–40% of days. So several Pro and Enterprise accounts with high numeric scores land in At Risk, for example:
+- Crestwood Staffing: score 85, activity 36.7% against Enterprise's 40% threshold.
+- Ashgrove Legal: score 84, activity 23.3% against Pro's 25% threshold.
+
+That is the specified behaviour. It's also the strongest reason to calibrate these thresholds on real outcome data before use.
+
+At 7 days the result is 18 / 1 / 6, and at 90 days it's 17 / 0 / 8.
 
 ## Data findings and assumptions
 
@@ -152,7 +220,7 @@ All weights, targets and thresholds live in [`backend/src/health/scoring.config.
 |---|---|
 | **Some accounts have more than one workspace.** Alderman Freight, Brightside Logistics and Cobalt Financial each have 2. | Rolled up into one account for scoring. The drill-down shows the per-workspace breakdown. |
 | **The plan tier on events disagrees with `accounts.json`.** Marlowe & Reed (since 2026-09-01) and Thistle & Vine (since 2026-08-31) appear as Pro on events, but as Enterprise in the accounts file. | `accounts.json` is treated as the contract of record, used for ARR and targets. A move to a lower tier on events is scored as a downgrade risk, and the CSM is told to confirm it. It might just be stale CRM data. |
-| **A day with no events at all.** No account has any events on 2026-06-28. | Treated as an ingestion gap rather than 25 customers all going quiet on the same day. The day is excluded from the per-day rates in Momentum, and listed on the methodology page. |
+| **A day with no events at all.** No account has any events on 2026-06-28. | Treated as an ingestion gap rather than 25 customers all going quiet on the same day. It isn't counted as an observable day for Activity or Momentum, so nobody is marked inactive for it. It's listed on the methodology page. |
 | **Accounts start at different points in the window.** Some accounts' first event is weeks into the window. | The window starts at the first event in the export. The prior period for Momentum is shared by all accounts. |
 | **Very sparse activity.** Accounts have 3–40 events each over 90 days. | Pillars use counts of distinct days, ratios, and smoothed rates. Accounts with fewer than 8 events are flagged "low signal". |
 | **New contracts.** Marlowe & Reed, Quarrystone and Brightside, among others, signed less than 6 months ago. | They're scored the same way as everyone else, but flagged "Onboarding" so a low score is read as a ramp-up signal rather than churn. |

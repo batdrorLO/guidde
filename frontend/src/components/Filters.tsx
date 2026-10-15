@@ -5,7 +5,7 @@ const select =
 
 export interface FilterValues {
   q: string;
-  tier: string;
+  status: string;
   plan: string;
   csm: string;
 }
@@ -30,7 +30,7 @@ export function Filters({
     return () => clearTimeout(t);
   }, [q, values.q, onChange]);
 
-  const active = values.q || values.tier || values.plan || values.csm;
+  const active = values.q || values.status || values.plan || values.csm;
 
   return (
     <div className="flex flex-wrap items-center gap-2">
@@ -42,11 +42,13 @@ export function Filters({
         className={`${select} w-full sm:w-64`}
         aria-label="Search accounts"
       />
-      <select className={select} value={values.tier} onChange={(e) => onChange('tier', e.target.value)} aria-label="Health tier">
-        <option value="">All health tiers</option>
+      <select className={select} value={values.status} onChange={(e) => onChange('status', e.target.value)} aria-label="Status">
+        <option value="">All statuses</option>
         <option value="at_risk">At risk</option>
         <option value="watch">Watch</option>
         <option value="healthy">Healthy</option>
+        <option value="onboarding">Onboarding (not scored)</option>
+        <option value="insufficient_data">Not enough data</option>
       </select>
       <select className={select} value={values.plan} onChange={(e) => onChange('plan', e.target.value)} aria-label="Plan">
         <option value="">All plans</option>

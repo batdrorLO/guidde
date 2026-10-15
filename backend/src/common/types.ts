@@ -10,9 +10,6 @@ export const EVENT_TYPES = [
 ] as const;
 export type EventType = (typeof EVENT_TYPES)[number];
 
-export const HEALTH_TIERS = ['healthy', 'watch', 'at_risk'] as const;
-export type HealthTier = (typeof HEALTH_TIERS)[number];
-
 // ---------- Domain (internal) ----------
 
 export interface Account {
@@ -65,6 +62,43 @@ export interface Dataset {
 
 // ---------- API DTOs ----------
 
+/** Tiers an eligible account can be placed in. */
+export const HEALTH_TIERS = ['healthy', 'watch', 'at_risk'] as const;
+export type HealthTier = (typeof HEALTH_TIERS)[number];
+
+/** Accounts not scored at all: too new, or tenure can't be established. */
+export const EXCLUDED_STATUSES = ['onboarding', 'insufficient_data'] as const;
+export type ExcludedStatus = (typeof EXCLUDED_STATUSES)[number];
+
+/** The effective status shown to CSMs. */
+export const ACCOUNT_STATUSES = [...HEALTH_TIERS, ...EXCLUDED_STATUSES] as const;
+export type AccountStatus = (typeof ACCOUNT_STATUSES)[number];
+
+/**
+ * The analysis window for one request. "Current" = `lookbackDays` calendar days ending
+ * on (and including) the reference day; "baseline" = the `2 × lookbackDays` calendar
+ * days immediately before it. All dates are UTC days, YYYY-MM-DD, inclusive.
+ */
+export interface AnalysisWindow {
+  /** Timestamp of the latest event in the export: the scoring "now". */
+  referenceDate: string;
+  lookbackDays: number;
+  start: string;
+  end: string;
+  /** Days in the window that can be evaluated: inside the export and not an ingestion gap. */
+  observableDays: number;
+  /** Window days that can't be evaluated (before the export starts, or ingestion gaps). */
+  unobservableDays: number;
+  baseline: {
+    start: string;
+    end: string;
+    calendarDays: number;
+    observableDays: number;
+    /** False when too little of the baseline is observable to measure momentum fairly. */
+    sufficient: boolean;
+  };
+}
+
 export type PillarKey = 'activity' | 'valueLoop' | 'retention' | 'momentum';
 
 export interface PillarScore {
@@ -74,9 +108,9 @@ export interface PillarScore {
   /** 0..1 */
   ratio: number;
   points: number;
-  /** Short measured value, e.g. "4 active days". */
+  /** Short measured value, e.g. "10 of 29 days (34%)". */
   measured: string;
-  /** Plain-English reason a CSM can read. */
+  /** Plain-English reason a CSM can read, built from the actual numbers. */
   explanation: string;
 }
 
@@ -91,6 +125,30 @@ export interface HealthFlag {
   penalty: number;
 }
 
+export type OverrideCode = 'dormant' | 'activity_below_plan_threshold' | 'downgrade_cap';
+
+/** A hard business rule that set the final status regardless of the score tier. */
+export interface StatusOverride {
+  code: OverrideCode;
+  /** The status this rule forces (dormant / activity) or caps at (downgrade). */
+  status: HealthTier;
+  reason: string;
+}
+
+export interface ActivityMetrics {
+  activeDays: number;
+  observableDays: number;
+  /** activeDays / observableDays; null when no day in the window is observable. */
+  rate: number | null;
+  fullCreditRate: number;
+  atRiskRate: number;
+}
+
+export interface AccountExclusion {
+  reason: 'below_minimum_tenure' | 'tenure_unknown' | 'unknown_plan' | 'no_observable_days';
+  message: string;
+}
+
 export interface AccountHealth {
   slug: string;
   companyName: string;
@@ -101,22 +159,35 @@ export interface AccountHealth {
   arrUsd: number;
   csmOwner: string;
   contractStartDate: string;
-  score: number;
-  /** Score before overrides — so the UI can show what the penalty cost. */
-  baseScore: number;
-  tier: HealthTier;
-  /** Set when an override moved the tier away from what the score alone gives. */
-  tierReason: string | null;
-  /** Triage order: low health on a large contract ranks first. */
-  priority: number;
+  /** Days from contract start to the reference day; null if the start date is unusable. */
+  tenureDays: number | null;
+  /** False for onboarding / insufficient-data accounts: no score, tier or priority. */
+  eligible: boolean;
+  /** The effective status CSMs see. */
+  status: AccountStatus;
+  /** Final 0–100 score after the downgrade penalty; null when not eligible. */
+  score: number | null;
+  /** Sum of pillar points before penalties; null when not eligible. */
+  baseScore: number | null;
+  /** The tier the score alone gives, before hard overrides; null when not eligible. */
+  scoreTier: HealthTier | null;
+  /** Every hard rule that applied, in precedence order. */
+  overrides: StatusOverride[];
+  /** Why the status differs from the score tier, or why the account isn't scored. */
+  statusReason: string | null;
+  exclusion: AccountExclusion | null;
+  /** Triage order: low health on a large contract ranks first. Null when not eligible. */
+  priority: number | null;
+  activity: ActivityMetrics | null;
   pillars: PillarScore[];
   flags: HealthFlag[];
   summary: string;
+  window: AnalysisWindow;
   stats: {
     totalEvents: number;
-    events30d: number;
-    activeDays30d: number;
-    activeUsers30d: number;
+    eventsInWindow: number;
+    activeDaysInWindow: number;
+    activeUsersInWindow: number;
     totalUsers: number;
     workspaces: number;
     lastActivity: string | null;
@@ -132,7 +203,7 @@ export interface AccountDetail extends AccountHealth {
   workspaceBreakdown: {
     workspaceId: string;
     events: number;
-    events30d: number;
+    eventsInWindow: number;
     users: number;
     lastSeen: string;
   }[];
@@ -140,7 +211,7 @@ export interface AccountDetail extends AccountHealth {
     userId: string;
     events: number;
     lastSeen: string;
-    active30d: boolean;
+    activeInWindow: boolean;
     topAction: EventType;
   }[];
   recentEvents: {
@@ -156,9 +227,12 @@ export interface AccountDetail extends AccountHealth {
 export interface PortfolioSummary {
   asOf: string;
   windowStart: string;
+  settings: { lookbackDays: number; minimumTenureDays: number };
+  window: AnalysisWindow;
   totalAccounts: number;
   totalArr: number;
-  tiers: Record<HealthTier, { count: number; arr: number }>;
+  /** Count and ARR per effective status, including accounts excluded from scoring. */
+  statuses: Record<AccountStatus, { count: number; arr: number }>;
   csms: string[];
   dataIssueCount: number;
 }

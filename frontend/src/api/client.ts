@@ -100,8 +100,10 @@ export const auth = {
 
 export const api = {
   accounts: (params: URLSearchParams) => get<AccountHealth[]>(`/accounts?${params}`),
-  account: (slug: string) => get<AccountDetail>(`/accounts/${encodeURIComponent(slug)}`),
-  summary: () => get<PortfolioSummary>('/summary'),
+  /** `settings` is the scoring-settings query string (days, minTenure); the server does the scoring. */
+  account: (slug: string, settings = '') =>
+    get<AccountDetail>(`/accounts/${encodeURIComponent(slug)}${settings ? `?${settings}` : ''}`),
+  summary: (settings = '') => get<PortfolioSummary>(`/summary${settings ? `?${settings}` : ''}`),
   dataQuality: () => get<DataQuality>('/data-quality'),
   methodology: () => get<ScoringConfig>('/methodology'),
 };

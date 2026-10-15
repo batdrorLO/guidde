@@ -1,11 +1,12 @@
 import { useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { api, useApi } from '../api/client';
-import type { HealthTier, SortKey } from '../api/types';
+import type { AccountStatus, SortKey } from '../api/types';
 import { AccountsTable } from '../components/AccountsTable';
 import { Filters, type FilterValues } from '../components/Filters';
 import { ErrorBox, Loading } from '../components/Status';
 import { SummaryTiles } from '../components/SummaryTiles';
+import { useScoringSettings } from '../lib/settings';
 import { formatDate, formatUsdCompact } from '../lib/format';
 
 const SORT_OPTIONS: { value: SortKey; label: string }[] = [
@@ -19,14 +20,15 @@ const SORT_OPTIONS: { value: SortKey; label: string }[] = [
 export function AccountsPage() {
   // All list state lives in the URL so a filtered view can be bookmarked or shared.
   const [params, setParams] = useSearchParams();
-  const summary = useApi(api.summary, 'summary');
+  const { query: settingsQuery, link } = useScoringSettings();
+  const summary = useApi(() => api.summary(settingsQuery), `summary:${settingsQuery}`);
   const accounts = useApi(() => api.accounts(params), params.toString());
 
   const sort = (params.get('sort') as SortKey) || 'priority';
   const order = (params.get('order') as 'asc' | 'desc' | null) ?? undefined;
   const filters: FilterValues = {
     q: params.get('q') ?? '',
-    tier: params.get('tier') ?? '',
+    status: params.get('status') ?? params.get('tier') ?? '',
     plan: params.get('plan') ?? '',
     csm: params.get('csm') ?? '',
   };
@@ -68,7 +70,8 @@ export function AccountsPage() {
         <div>
           <h1 className="text-2xl font-semibold text-slate-900">Account health</h1>
           <p className="mt-1 text-sm text-slate-500">
-            Where to focus this week. Sorted by priority: unhealthy accounts with the most ARR first.
+            Where to focus this week. Sorted by priority: At Risk first (including accounts a rule forced there), then
+            Watch, then Healthy; within each, low score × high ARR first. New accounts aren’t scored and come last.
           </p>
         </div>
         {summary.data && (
@@ -86,8 +89,19 @@ export function AccountsPage() {
       {summary.data && (
         <SummaryTiles
           summary={summary.data}
-          active={(filters.tier || undefined) as HealthTier | undefined}
-          onSelect={(t) => setParam('tier', t)}
+          active={(filters.status || undefined) as AccountStatus | undefined}
+          onSelect={(t) =>
+            setParams(
+              (prev) => {
+                const next = new URLSearchParams(prev);
+                next.delete('tier'); // legacy name of the status filter
+                if (t) next.set('status', t);
+                else next.delete('status');
+                return next;
+              },
+              { replace: true },
+            )
+          }
         />
       )}
 
@@ -96,7 +110,18 @@ export function AccountsPage() {
           values={filters}
           csms={summary.data?.csms ?? []}
           onChange={setParam}
-          onReset={() => setParams(sort === 'priority' ? {} : { sort }, { replace: true })}
+          onReset={() =>
+            setParams(
+              (prev) => {
+                // Clearing filters keeps the scoring settings and the sort.
+                const next = new URLSearchParams();
+                for (const k of ['days', 'minTenure']) if (prev.get(k)) next.set(k, prev.get(k)!);
+                if (sort !== 'priority') next.set('sort', sort);
+                return next;
+              },
+              { replace: true },
+            )
+          }
         />
         <label className="flex items-center gap-2 text-sm text-slate-500">
           Sort by
@@ -134,7 +159,7 @@ export function AccountsPage() {
         />
       ) : accounts.data ? (
         <div className={accounts.loading ? 'opacity-60 transition-opacity' : ''}>
-          <AccountsTable rows={accounts.data} sort={sort} order={order} onSort={onSort} />
+          <AccountsTable rows={accounts.data} sort={sort} order={order} onSort={onSort} link={link} />
           <p className="mt-2 text-xs text-slate-400">
             Showing {accounts.data.length} of {summary.data?.totalAccounts ?? '…'} accounts. Click a row to see why it scored that way.
           </p>

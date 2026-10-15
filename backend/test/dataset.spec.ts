@@ -40,6 +40,21 @@ describe('the real export', () => {
     expect(ds.issues.some((i) => i.code === 'event_without_account')).toBe(false);
   });
 
+  it('uses the last event in the export (2026-09-13) as the reference date', () => {
+    expect(ds.asOf.toISOString()).toBe('2026-09-13T07:15:00.000Z');
+    const h = scored.get('brightside-logistics')!;
+    expect(h.window).toMatchObject({ end: '2026-09-13', start: '2026-08-15', lookbackDays: 30 });
+  });
+
+  it('scores every real account at the default settings (all contracts are older than 30 days)', () => {
+    expect([...scored.values()].every((h) => h.eligible && h.score !== null)).toBe(true);
+  });
+
+  it('excludes the gap day from the baseline used for momentum', () => {
+    const w = scored.get('brightside-logistics')!.window;
+    expect(w.baseline).toMatchObject({ start: '2026-06-16', end: '2026-08-14', calendarDays: 60, observableDays: 59 });
+  });
+
   it('detects the 2026-06-28 ingestion gap', () => {
     expect(ds.gapDays).toEqual(['2026-06-28']);
   });
@@ -53,13 +68,13 @@ describe('the real export', () => {
     for (const slug of ['marlowe-and-reed', 'thistle-and-vine-events']) {
       const h = scored.get(slug)!;
       expect(h.flags.map((f) => f.code)).toContain('downgrade');
-      expect(h.tier).not.toBe('healthy');
+      expect(h.status).not.toBe('healthy');
     }
   });
 
   it('puts accounts silent for a month or more in At Risk', () => {
     for (const slug of ['redwood-studios', 'tidewater-retail', 'cedarline-insurance']) {
-      expect(scored.get(slug)!.tier).toBe('at_risk');
+      expect(scored.get(slug)!.status).toBe('at_risk');
     }
   });
 });

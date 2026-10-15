@@ -1,7 +1,9 @@
 import { NavLink, Route, Routes, useLocation } from 'react-router-dom';
 import { useAuth } from './auth/AuthContext';
 import { ErrorBoundary } from './components/ErrorBoundary';
+import { ScoringSettingsBar } from './components/ScoringSettingsBar';
 import { ErrorBox, Loading } from './components/Status';
+import { useScoringSettings } from './lib/settings';
 import { AccountDetailPage } from './pages/AccountDetailPage';
 import { AccountsPage } from './pages/AccountsPage';
 import { LoginPage } from './pages/LoginPage';
@@ -13,6 +15,7 @@ const navClass = ({ isActive }: { isActive: boolean }) =>
 export function App() {
   const { pathname } = useLocation();
   const { state, signOut, recheck } = useAuth();
+  const { link } = useScoringSettings();
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -24,10 +27,10 @@ export function App() {
           {state.status === 'signedIn' && (
             <div className="flex items-center gap-4">
               <nav className="flex gap-1">
-                <NavLink to="/" end className={navClass}>
+                <NavLink to={link('/')} end className={navClass}>
                   Accounts
                 </NavLink>
-                <NavLink to="/methodology" className={navClass}>
+                <NavLink to={link('/methodology')} className={navClass}>
                   Methodology
                 </NavLink>
               </nav>
@@ -43,6 +46,7 @@ export function App() {
           )}
         </div>
       </header>
+      {state.status === 'signedIn' && <ScoringSettingsBar />}
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
         {state.status === 'checking' && <Loading />}
         {state.status === 'unreachable' && <ErrorBox error={state.error} onRetry={recheck} />}

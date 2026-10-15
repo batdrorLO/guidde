@@ -5,8 +5,18 @@ import { EVENT_COLOR, EVENT_LABEL } from '../lib/format';
 const shortDate = (iso: string) =>
   new Date(iso + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
 
-/** Weekly events stacked by type, with a marker where the 30-day scoring window starts. */
-export function ActivityChart({ weekly, windowStartWeek }: { weekly: WeeklyActivity[]; windowStartWeek?: string }) {
+/** Weekly events stacked by type, with a marker at the week the scoring window starts. */
+export function ActivityChart({
+  weekly,
+  windowStartWeek,
+  windowLabel = 'scoring window →',
+}: {
+  weekly: WeeklyActivity[];
+  windowStartWeek?: string;
+  windowLabel?: string;
+}) {
+  // Only draw the marker if that week is on the chart (a long window can start before the export does).
+  const marker = windowStartWeek && weekly.some((w) => w.weekStart === windowStartWeek) ? windowStartWeek : undefined;
   return (
     <div className="h-64 w-full">
       <ResponsiveContainer>
@@ -20,12 +30,12 @@ export function ActivityChart({ weekly, windowStartWeek }: { weekly: WeeklyActiv
             cursor={{ fill: '#f1f5f9' }}
           />
           <Legend formatter={(v) => <span className="text-xs text-slate-600">{EVENT_LABEL[v as keyof typeof EVENT_LABEL]}</span>} />
-          {windowStartWeek && (
+          {marker && (
             <ReferenceLine
-              x={windowStartWeek}
+              x={marker}
               stroke="#334155"
               strokeDasharray="4 3"
-              label={{ value: 'last 30 days →', position: 'insideTopLeft', fontSize: 11, fill: '#334155' }}
+              label={{ value: windowLabel, position: 'insideTopLeft', fontSize: 11, fill: '#334155' }}
             />
           )}
           {EVENT_TYPES.map((t) => (

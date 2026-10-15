@@ -4,6 +4,8 @@
 export type PlanTier = 'Free' | 'Pro' | 'Enterprise';
 export type EventType = 'guide_created' | 'guide_viewed' | 'guide_shared' | 'user_invited' | 'login';
 export type HealthTier = 'healthy' | 'watch' | 'at_risk';
+/** Effective status: a health tier, or excluded from scoring. */
+export type AccountStatus = HealthTier | 'onboarding' | 'insufficient_data';
 export type Severity = 'info' | 'warning' | 'error';
 export type SortKey = 'priority' | 'score' | 'arr' | 'name' | 'lastActivity';
 
@@ -33,6 +35,30 @@ export interface HealthFlag {
   penalty: number;
 }
 
+export interface AnalysisWindow {
+  referenceDate: string;
+  lookbackDays: number;
+  start: string;
+  end: string;
+  observableDays: number;
+  unobservableDays: number;
+  baseline: { start: string; end: string; calendarDays: number; observableDays: number; sufficient: boolean };
+}
+
+export interface StatusOverride {
+  code: 'dormant' | 'activity_below_plan_threshold' | 'downgrade_cap';
+  status: HealthTier;
+  reason: string;
+}
+
+export interface ActivityMetrics {
+  activeDays: number;
+  observableDays: number;
+  rate: number | null;
+  fullCreditRate: number;
+  atRiskRate: number;
+}
+
 export interface AccountHealth {
   slug: string;
   companyName: string;
@@ -42,19 +68,26 @@ export interface AccountHealth {
   arrUsd: number;
   csmOwner: string;
   contractStartDate: string;
-  score: number;
-  baseScore: number;
-  tier: HealthTier;
-  tierReason: string | null;
-  priority: number;
+  tenureDays: number | null;
+  eligible: boolean;
+  status: AccountStatus;
+  score: number | null;
+  baseScore: number | null;
+  scoreTier: HealthTier | null;
+  overrides: StatusOverride[];
+  statusReason: string | null;
+  exclusion: { reason: string; message: string } | null;
+  priority: number | null;
+  activity: ActivityMetrics | null;
   pillars: PillarScore[];
   flags: HealthFlag[];
   summary: string;
+  window: AnalysisWindow;
   stats: {
     totalEvents: number;
-    events30d: number;
-    activeDays30d: number;
-    activeUsers30d: number;
+    eventsInWindow: number;
+    activeDaysInWindow: number;
+    activeUsersInWindow: number;
     totalUsers: number;
     workspaces: number;
     lastActivity: string | null;
@@ -67,8 +100,8 @@ export type WeeklyActivity = { weekStart: string } & Record<EventType, number>;
 export interface AccountDetail extends AccountHealth {
   asOf: string;
   weekly: WeeklyActivity[];
-  workspaceBreakdown: { workspaceId: string; events: number; events30d: number; users: number; lastSeen: string }[];
-  users: { userId: string; events: number; lastSeen: string; active30d: boolean; topAction: EventType }[];
+  workspaceBreakdown: { workspaceId: string; events: number; eventsInWindow: number; users: number; lastSeen: string }[];
+  users: { userId: string; events: number; lastSeen: string; activeInWindow: boolean; topAction: EventType }[];
   recentEvents: {
     eventId: string;
     timestamp: string;
@@ -79,12 +112,19 @@ export interface AccountDetail extends AccountHealth {
   }[];
 }
 
+export interface ScoringSettings {
+  lookbackDays: number;
+  minimumTenureDays: number;
+}
+
 export interface PortfolioSummary {
   asOf: string;
   windowStart: string;
+  settings: ScoringSettings;
+  window: AnalysisWindow;
   totalAccounts: number;
   totalArr: number;
-  tiers: Record<HealthTier, { count: number; arr: number }>;
+  statuses: Record<AccountStatus, { count: number; arr: number }>;
   csms: string[];
   dataIssueCount: number;
 }
@@ -104,13 +144,28 @@ export interface DataQuality {
   issues: DataQualityIssue[];
 }
 
-type PerPlan = Record<PlanTier, number>;
+export interface PlanExpectation {
+  fullCreditActivityRate: number;
+  atRiskActivityRate: number;
+  producedPer30Days: number;
+  consumedPer30Days: number;
+}
+
+/** Mirrors backend/src/health/scoring.config.ts (served by GET /api/methodology). */
 export interface ScoringConfig {
-  recentDays: number;
+  lookback: { defaultDays: number; minDays: number; maxDays: number; presets: number[] };
+  tenure: { defaultMinimumDays: number; minDays: number; maxDays: number };
   weights: { activity: number; valueLoop: number; retention: number; momentum: number };
-  targets: { activeDays: PerPlan; produced: PerPlan; consumed: PerPlan };
-  retention: { fullCreditShare: number; minUserBase: number };
-  momentum: { fullCreditRatio: number; zeroCreditRatio: number; smoothing: number };
+  planExpectations: Record<PlanTier, PlanExpectation>;
+  retention: { fullCreditRate: number };
+  momentum: {
+    baselineMultiplier: number;
+    fullCreditRatio: number;
+    zeroCreditRatio: number;
+    smoothing: number;
+    minBaselineCoverage: number;
+    insufficientBaselineCredit: number;
+  };
   overrides: { downgradePenalty: number; downgradeMaxTier: HealthTier; dormantDays: number };
   context: { onboardingDays: number; lowSignalEvents: number };
   tiers: { healthy: number; watch: number };

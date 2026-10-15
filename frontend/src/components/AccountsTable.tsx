@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import type { AccountHealth, SortKey } from '../api/types';
-import { daysAgo, formatUsd } from '../lib/format';
+import { daysAgo, formatPct, formatUsd } from '../lib/format';
 import { HealthBadge, ScoreCell } from './HealthBadge';
 
 interface Column {
@@ -12,6 +12,7 @@ interface Column {
 const COLUMNS: Column[] = [
   { label: 'Account', sort: 'name' },
   { label: 'Health', sort: 'score' },
+  { label: 'Activity', className: 'hidden xl:table-cell' },
   { label: 'Why', className: 'hidden lg:table-cell' },
   { label: 'ARR', sort: 'arr', className: 'text-right' },
   { label: 'Last active', sort: 'lastActivity', className: 'hidden md:table-cell' },
@@ -23,11 +24,14 @@ export function AccountsTable({
   sort,
   order,
   onSort,
+  link,
 }: {
   rows: AccountHealth[];
   sort: SortKey;
   order: 'asc' | 'desc' | undefined;
   onSort: (key: SortKey) => void;
+  /** Builds an in-app link that keeps the current scoring settings. */
+  link: (path: string) => string;
 }) {
   if (rows.length === 0) {
     return (
@@ -64,7 +68,7 @@ export function AccountsTable({
           {rows.map((a) => (
             <tr key={a.slug} className="group hover:bg-slate-50">
               <td className="px-4 py-3">
-                <Link to={`/accounts/${a.slug}`} className="font-medium text-slate-900 group-hover:text-indigo-600">
+                <Link to={link(`/accounts/${a.slug}`)} className="font-medium text-slate-900 group-hover:text-indigo-600">
                   {a.companyName}
                 </Link>
                 <div className="text-xs text-slate-500">
@@ -77,9 +81,25 @@ export function AccountsTable({
               </td>
               <td className="px-4 py-3">
                 <div className="flex flex-col gap-1">
-                  <ScoreCell score={a.score} tier={a.tier} />
-                  <HealthBadge tier={a.tier} />
+                  <ScoreCell score={a.score} tier={a.status} />
+                  <HealthBadge tier={a.status} />
                 </div>
+              </td>
+              <td className="hidden px-4 py-3 xl:table-cell">
+                {a.activity ? (
+                  <div title={`Active on ${a.activity.activeDays} of ${a.activity.observableDays} days`}>
+                    <span
+                      className={`font-medium tabular-nums ${
+                        a.activity.rate !== null && a.activity.rate < a.activity.atRiskRate ? 'text-rose-600' : 'text-slate-800'
+                      }`}
+                    >
+                      {formatPct(a.activity.rate)}
+                    </span>
+                    <div className="text-xs text-slate-500">At Risk below {formatPct(a.activity.atRiskRate)}</div>
+                  </div>
+                ) : (
+                  <span className="text-xs text-slate-400">{a.tenureDays !== null ? `${a.tenureDays}-day customer` : '—'}</span>
+                )}
               </td>
               <td className="hidden max-w-sm px-4 py-3 text-slate-600 lg:table-cell">{a.summary}</td>
               <td className="px-4 py-3 text-right tabular-nums text-slate-700">{formatUsd(a.arrUsd)}</td>

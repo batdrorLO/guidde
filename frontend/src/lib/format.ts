@@ -1,10 +1,23 @@
-import type { EventType, HealthTier } from '../api/types';
+import type { AccountStatus, EventType } from '../api/types';
 
-export const TIER_LABEL: Record<HealthTier, string> = {
+export const TIER_LABEL: Record<AccountStatus, string> = {
   healthy: 'Healthy',
   watch: 'Watch',
   at_risk: 'At risk',
+  onboarding: 'Onboarding',
+  insufficient_data: 'Not enough data',
 };
+
+/** 0.333 → "33.3%" */
+export function formatPct(x: number | null | undefined): string {
+  if (x === null || x === undefined || Number.isNaN(x)) return '—';
+  return `${Math.round(x * 1000) / 10}%`;
+}
+
+/** "2026-08-15" → "Aug 15" */
+export function formatDay(day: string): string {
+  return new Date(day + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+}
 
 export const EVENT_LABEL: Record<EventType, string> = {
   guide_created: 'Guide created',

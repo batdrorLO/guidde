@@ -105,7 +105,7 @@ export function buildDataset(
       severity: 'warning',
       message: `No events from any account on ${gapDays.join(', ')}.`,
       handling:
-        'Treated as an ingestion gap, not customer inactivity: excluded from per-day rates in the momentum pillar.',
+        'Treated as an ingestion gap, not customer inactivity: not counted as an observable day for Activity or Momentum.',
     });
   }
 
