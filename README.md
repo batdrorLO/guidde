@@ -32,6 +32,33 @@ Before deploying, replace these users and set a real `JWT_SECRET`. Copy `.env.ex
 
 The data lives in `data/` (`accounts.json`, `usage_events.json`). To point the API somewhere else, set `DATA_DIR`.
 
+### Run with Docker (optional)
+
+If you'd rather not install Node, you can run the whole app with Docker. It requires Docker with Compose v2 (Docker Desktop includes both).
+
+```bash
+docker compose up --build    # first run builds the images (a minute or two)
+```
+
+Open **http://localhost:8080** and sign in with the demo users above. To stop, press `Ctrl+C`, or run `docker compose down` if you started it with `-d`.
+
+There are two containers:
+
+- **`web`**: nginx serves the built UI and forwards `/api` to the API. The browser sees a single origin, so the session cookie works with no CORS setup.
+- **`api`**: the NestJS API, running the compiled build.
+
+`data/` and `config/` are mounted read-only rather than copied into the image. If you edit the export or the users file on your machine, the API picks up the change without a rebuild.
+
+Compose reads settings from `.env` in the repo root, if it exists. The ones that matter here:
+
+| Variable | Default in Docker | Notes |
+|---|---|---|
+| `JWT_SECRET` | empty | Empty means a random secret per run, so everyone is signed out when the container restarts. Set one to keep sessions across restarts. |
+| `WEB_PORT` | `8080` | Change it if 8080 is already in use, e.g. `WEB_PORT=3000 docker compose up`. |
+| `COOKIE_SECURE` | `false` | The app runs on plain http on localhost. Set it to `true` when serving over HTTPS. |
+
+API logs: `docker compose logs -f api`.
+
 **About `npm audit`.** `npm audit --omit=dev` reports **0 vulnerabilities** in the code the app runs. The ~40 that `npm install` reports are all in local build and test tooling: Tailwind 3, Nest CLI 11, and Jest's coverage plugin. They're denial-of-service style issues that need attacker-controlled input, and these tools only ever read this repo's own files. Clearing them would mean migrating to Tailwind 4 and Nest CLI 12 and replacing Jest with Vitest. That's out of scope for this exercise, and I list it under next steps below. Don't run `npm audit fix --force`: it forces those major upgrades blindly.
 
 ### API
@@ -258,6 +285,10 @@ frontend/src/
   components/               table, filters, summary tiles, pillar bars, activity chart, flags,
                             ErrorBox (message, hint, ref, retry), ErrorBoundary
   api/                      typed client (ApiError, timeouts, retry) and DTO types (mirrors backend/src/common/types.ts)
+docker-compose.yml          api + web containers; mounts data/ and config/
+backend/Dockerfile          multi-stage build → compiled API on node:24-alpine
+frontend/Dockerfile         multi-stage build → static UI on nginx
+frontend/nginx.conf         serves the SPA, proxies /api to the api container
 ```
 
 The scoring code is a set of pure functions with no Nest dependency. That makes it easy to unit-test, and easy to move into a batch job later.

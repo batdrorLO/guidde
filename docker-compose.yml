@@ -1,0 +1,41 @@
+# docker compose up --build  →  http://localhost:8080
+# Values like ${JWT_SECRET} are read from .env in this folder, if it exists.
+services:
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      # Empty → a random secret per run (everyone is signed out when the container restarts).
+      JWT_SECRET: ${JWT_SECRET:-}
+      JWT_TTL_HOURS: ${JWT_TTL_HOURS:-8}
+      AUTH_ALLOWED_ROLES: ${AUTH_ALLOWED_ROLES:-cs,admin}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      # Served over plain http on localhost; set to true behind HTTPS.
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+      # nginx is in front, so sign-in lockouts use the client IP from X-Forwarded-For.
+      TRUST_PROXY: "1"
+      DATA_DIR: /app/data
+      AUTH_USERS_FILE: /app/config/users.json
+    volumes:
+      # Mounted, not copied: fix the export or edit users and the API picks it up without a rebuild.
+      - ./data:/app/data:ro
+      - ./config:/app/config:ro
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3001/api/status"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "${WEB_PORT:-8080}:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped

@@ -1,0 +1,10 @@
+**/node_modules
+**/dist
+**/coverage
+**/*.tsbuildinfo
+**/.DS_Store
+.git
+.env
+# Mounted at runtime by docker-compose.yml, so edits apply without a rebuild.
+data
+config
