@@ -130,16 +130,19 @@ The `GET /api/data-quality` endpoint and the Methodology page report anything th
 backend/src/
   data/parse.ts             validate raw rows (zod), de-dupe, collect issues
   data/build-dataset.ts     join on company name, roll up workspaces, detect tier drift and gap days
-  data/dataset.service.ts   loads data/ once at startup
+  data/dataset.service.ts   loads data/; on failure stays up, serves 503s, retries on next request
   health/scoring.config.ts  every weight, target and threshold
   health/health-scoring.ts  pure scoring functions with plain-English explanations
-  health/health.service.ts  scores once at startup; filter, sort, detail, summary
-  accounts/, meta/          controllers
+  health/health.service.ts  scores on first use (per-account failures isolated); filter, sort, detail, summary
+  accounts/, meta/          controllers (meta includes /api/status)
+  common/errors.ts          AppException, DataLoadError, DataUnavailableException
+  common/http.ts            request logging middleware + global exception filter
 backend/test/               Jest unit tests and tests against the real export
 frontend/src/
   pages/                    AccountsPage, AccountDetailPage, MethodologyPage
-  components/               table, filters, summary tiles, pillar bars, activity chart, flags
-  api/                      typed client and DTO types (mirrors backend/src/common/types.ts)
+  components/               table, filters, summary tiles, pillar bars, activity chart, flags,
+                            ErrorBox (message, hint, ref, retry), ErrorBoundary
+  api/                      typed client (ApiError, timeouts, retry) and DTO types (mirrors backend/src/common/types.ts)
 ```
 
 The scoring code is a set of pure functions with no Nest dependency. That makes it easy to unit-test, and easy to move into a batch job later.
