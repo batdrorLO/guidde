@@ -89,11 +89,15 @@ export interface AnalysisWindow {
   observableDays: number;
   /** Window days that can't be evaluated (before the export starts, or ingestion gaps). */
   unobservableDays: number;
+  /** Ingestion gaps inside the window: days the export has no data for (YYYY-MM-DD). */
+  missingDataDays: string[];
   baseline: {
     start: string;
     end: string;
     calendarDays: number;
     observableDays: number;
+    /** Ingestion gaps inside the baseline (YYYY-MM-DD). */
+    missingDataDays: string[];
     /** False when too little of the baseline is observable to measure momentum fairly. */
     sufficient: boolean;
   };
@@ -114,7 +118,7 @@ export interface PillarScore {
   explanation: string;
 }
 
-export type FlagCode = 'downgrade' | 'dormant' | 'onboarding' | 'low_signal' | 'multi_workspace';
+export type FlagCode = 'downgrade' | 'dormant' | 'onboarding' | 'low_signal' | 'multi_workspace' | 'missing_data';
 
 export interface HealthFlag {
   code: FlagCode;
@@ -195,7 +199,8 @@ export interface AccountHealth {
   };
 }
 
-export type WeeklyActivity = { weekStart: string } & Record<EventType, number>;
+/** `missingDays`: days in this week the export has no data for, so a low bar isn't read as low usage. */
+export type WeeklyActivity = { weekStart: string; missingDays: string[] } & Record<EventType, number>;
 
 export interface AccountDetail extends AccountHealth {
   asOf: string;

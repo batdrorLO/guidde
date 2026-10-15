@@ -59,6 +59,17 @@ describe('the real export', () => {
     expect(ds.gapDays).toEqual(['2026-06-28']);
   });
 
+  it('reports 2026-06-28 as missing data, not as every account being inactive', () => {
+    const issue = ds.issues.find((i) => i.code === 'missing_days')!;
+    expect(issue.message).toMatch(/^Missing data on 2026-06-28/);
+    expect(issue.handling).toContain('not as a day every customer was inactive');
+    // The default 30-day window doesn't include it, but the momentum baseline does.
+    const h = scored.get('brightside-logistics')!;
+    expect(h.window.missingDataDays).toEqual([]);
+    expect(h.window.baseline.missingDataDays).toEqual(['2026-06-28']);
+    expect(h.flags.map((f) => f.code)).toContain('missing_data');
+  });
+
   it('rolls up the three multi-workspace accounts', () => {
     const multi = ds.issues.filter((i) => i.code === 'multi_workspace').map((i) => i.companyName).sort();
     expect(multi).toEqual(['Alderman Freight', 'Brightside Logistics', 'Cobalt Financial']);

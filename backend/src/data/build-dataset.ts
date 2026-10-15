@@ -103,9 +103,9 @@ export function buildDataset(
     issues.push({
       code: 'missing_days',
       severity: 'warning',
-      message: `No events from any account on ${gapDays.join(', ')}.`,
+      message: `Missing data on ${gapDays.join(', ')}: the export has no events at all for ${gapDays.length === 1 ? 'that day' : 'those days'}, from any account.`,
       handling:
-        'Treated as an ingestion gap, not customer inactivity: not counted as an observable day for Activity or Momentum.',
+        'Treated as missing data.',
     });
   }
 

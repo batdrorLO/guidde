@@ -172,7 +172,7 @@ Invalid values, typed into the bar or put directly in the URL, are rejected with
 - **"Now" is the latest event in the export** (2026-09-13 for this file), never today's date. Opening the dashboard next year gives the same results.
 - **Current window:** the *N* calendar days (UTC) ending on the reference day, **with both ends included**. At 30 days, that's 2026-08-15 to 2026-09-13.
 - **Baseline window**, used for momentum: the *2N* calendar days immediately before the current window (at 30 days, 2026-06-16 to 2026-08-14). The two never overlap.
-- **Observable days:** a day only counts if the export can actually show it. Two kinds of day are left out: days before the export starts, and ingestion gaps. An ingestion gap is a day with zero events from *any* account; there's one, 2026-06-28. Neither is ever counted as an inactive day.
+- **Observable days:** a day only counts if the export can actually show it. Two kinds of day are left out: days before the export starts, and ingestion gaps. An ingestion gap is a day with zero events from *any* account; there's one, 2026-06-28. Neither is ever counted as an inactive day, and gap days are reported as missing data (in the window details, an account flag, and the activity charts).
 - **Limitation:** the export has no explicit coverage metadata, so a gap can only be detected when *every* account is silent. If ingestion failed for one workspace only, that can't be distinguished from real inactivity.
 
 ### Minimum tenure
@@ -212,7 +212,7 @@ For example, take an account active on 10 of 30 observable days, which is 33.3%.
 4. **Plan downgrade** (the latest events show a lower plan than the contract): −20 points, with the score clamped to 0–100.
 5. **Score tier** from that score: Healthy ≥ 70 · Watch 45–69 · At Risk < 45.
 6. **Hard rules.** Every rule that applies is reported, and the numeric score is never changed to force a status:
-   - **Dormant**: no events for more than 21 days before the reference date → **At Risk**. This rule is separate from a low activity rate.
+   - **Dormant**: no events for more than 21 days before the reference date → **At Risk**. Days missing from the export don't count toward the 21. This rule is separate from a low activity rate.
    - **Activity below the plan's At Risk threshold** → **At Risk**.
    - **Downgrade** → the account **can't be Healthy**. If its score would make it Healthy, it becomes Watch.
 
@@ -247,7 +247,7 @@ At 7 days the result is 18 / 1 / 6, and at 90 days it's 17 / 0 / 8.
 |---|---|
 | **Some accounts have more than one workspace.** Alderman Freight, Brightside Logistics and Cobalt Financial each have 2. | Rolled up into one account for scoring. The drill-down shows the per-workspace breakdown. |
 | **The plan tier on events disagrees with `accounts.json`.** Marlowe & Reed (since 2026-09-01) and Thistle & Vine (since 2026-08-31) appear as Pro on events, but as Enterprise in the accounts file. | `accounts.json` is treated as the contract of record, used for ARR and targets. A move to a lower tier on events is scored as a downgrade risk, and the CSM is told to confirm it. It might just be stale CRM data. |
-| **A day with no events at all.** No account has any events on 2026-06-28. | Treated as an ingestion gap rather than 25 customers all going quiet on the same day. It isn't counted as an observable day for Activity or Momentum, so nobody is marked inactive for it. It's listed on the methodology page. |
+| **A day with no events at all.** No account has any events on 2026-06-28. | Treated as **missing data** (an ingestion gap), not as 25 customers all going quiet on the same day. The day isn't counted as an observable day for Activity or Momentum, and it doesn't count toward the 21-day dormancy rule, so nobody is marked inactive for it. Every account whose period or momentum comparison includes that day gets an informational "Missing data" flag (no score effect). Weekly activity charts mark that week with an asterisk, so its shorter bar isn't read as a drop in usage. It's also listed on the methodology page. |
 | **Accounts start at different points in the window.** Some accounts' first event is weeks into the window. | The window starts at the first event in the export. The prior period for Momentum is shared by all accounts. |
 | **Very sparse activity.** Accounts have 3–40 events each over 90 days. | Pillars use counts of distinct days, ratios, and smoothed rates. Accounts with fewer than 8 events are flagged "low signal". |
 | **New contracts.** Marlowe & Reed, Quarrystone and Brightside, among others, signed less than 6 months ago. | They're scored the same way as everyone else, but flagged "Onboarding" so a low score is read as a ramp-up signal rather than churn. |

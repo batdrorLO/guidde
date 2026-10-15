@@ -200,8 +200,9 @@ export class HealthService {
     const weeks = new Map<string, WeeklyActivity>();
     for (let t = Date.parse(weekStart(ds.windowStart)); t <= ds.asOf.getTime(); t += 7 * 86_400_000) {
       const k = new Date(t).toISOString().slice(0, 10);
-      weeks.set(k, { weekStart: k, ...zeroCounts() });
+      weeks.set(k, { weekStart: k, missingDays: [], ...zeroCounts() });
     }
+    for (const d of ds.gapDays) weeks.get(weekStart(new Date(d + 'T00:00:00Z')))?.missingDays.push(d);
     for (const e of events) {
       const w = weeks.get(weekStart(e.timestamp));
       if (w) w[e.eventType]++;

@@ -22,6 +22,7 @@ export function ScoringSettingsBar() {
           <>
             Scoring <strong className="font-medium text-slate-800">{formatDay(w.start)} – {formatDate(w.end)}</strong> ({w.lookbackDays} days
             {w.unobservableDays > 0 && `, ${w.observableDays} with data`})
+            {w.missingDataDays.length > 0 && ` · no data for ${w.missingDataDays.map(formatDay).join(', ')}`}
             {s && ` · min. tenure ${s.minimumTenureDays} days`} · data as of {formatDate(w.referenceDate)}
           </>
         ) : (

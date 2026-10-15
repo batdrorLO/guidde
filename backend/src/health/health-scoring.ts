@@ -69,6 +69,11 @@ export function countObservableDays(start: string, end: string, ctx: ScoreContex
   return n;
 }
 
+/** Ingestion gaps in [start, end] (inclusive): days the export has no data for. */
+export function missingDataDays(start: string, end: string, ctx: ScoreContext): string[] {
+  return ctx.gapDays.filter((d) => d >= start && d <= end);
+}
+
 /**
  * Current window: `lookbackDays` calendar days ending on (and including) the reference day.
  * Baseline: the `baselineMultiplier × lookbackDays` calendar days immediately before it.
@@ -91,11 +96,13 @@ export function buildWindow(ctx: ScoreContext, lookbackDays: number, cfg: Scorin
     end,
     observableDays,
     unobservableDays: lookbackDays - observableDays,
+    missingDataDays: missingDataDays(start, end, ctx),
     baseline: {
       start: baselineStart,
       end: baselineEnd,
       calendarDays,
       observableDays: baselineObservable,
+      missingDataDays: missingDataDays(baselineStart, baselineEnd, ctx),
       sufficient: baselineObservable > 0 && baselineObservable >= calendarDays * cfg.momentum.minBaselineCoverage,
     },
   };
@@ -170,6 +177,9 @@ export function scoreAccount(
   const allUsers = new Set(events.map((e) => e.userId));
   const last = events.length ? events[events.length - 1].timestamp : null;
   const daysSince = last ? Math.floor((ctx.asOf.getTime() - last.getTime()) / DAY_MS) : null;
+  // Missing-data days since the last event don't count as silence: nobody could have been seen on them.
+  const missedSinceLast = last ? missingDataDays(addDays(isoDay(last), 1), isoDay(ctx.asOf), ctx).length : 0;
+  const silentDays = daysSince === null ? null : daysSince - missedSinceLast;
   const tenure = tenureDays(account.contractStartDate, ctx.asOf);
   const workspaces = new Set(events.map((e) => e.workspaceId)).size;
   const downgrade = detectDowngrade(events, plan);
@@ -208,16 +218,34 @@ export function scoreAccount(
       penalty: cfg.overrides.downgradePenalty,
     });
   }
-  const dormant = daysSince === null || daysSince > cfg.overrides.dormantDays;
+  const dormant = silentDays === null || silentDays > cfg.overrides.dormantDays;
+  const silence = (d: number) =>
+    `${d} days${missedSinceLast ? `, not counting ${plural(missedSinceLast, 'day')} missing from the export` : ''}`;
   if (dormant) {
     flags.push({
       code: 'dormant',
       severity: 'error',
       title: 'Dormant',
       detail:
-        daysSince === null
+        silentDays === null
           ? 'No activity anywhere in the export.'
-          : `Nobody has done anything for ${daysSince} days (threshold: more than ${cfg.overrides.dormantDays}).`,
+          : `Nobody has done anything for ${silence(silentDays)} (threshold: more than ${cfg.overrides.dormantDays}).`,
+      penalty: 0,
+    });
+  }
+  const missingInPeriod = [...window.missingDataDays, ...window.baseline.missingDataDays];
+  if (missingInPeriod.length > 0) {
+    const days = missingInPeriod.map(shortDay).join(', ');
+    const where = window.missingDataDays.length
+      ? `the last ${N} days`
+      : `the ${window.baseline.calendarDays} days momentum compares against`;
+    flags.push({
+      code: 'missing_data',
+      severity: 'info',
+      title: 'Missing data',
+      detail:
+        `The export has no data for ${days}, inside ${where}. That's a gap in the data, not inactivity: ` +
+        `the day is left out of Activity, Momentum and the dormancy count instead of being counted as a day with no usage.`,
       penalty: 0,
     });
   }
@@ -409,9 +437,9 @@ export function scoreAccount(
       code: 'dormant',
       status: 'at_risk',
       reason:
-        daysSince === null
+        silentDays === null
           ? 'Dormant: no activity anywhere in the export.'
-          : `Dormant: no activity for ${daysSince} days (more than ${cfg.overrides.dormantDays}).`,
+          : `Dormant: no activity for ${silence(silentDays)} (more than ${cfg.overrides.dormantDays}).`,
     });
   }
   if (rate < expectation.atRiskActivityRate) {

@@ -28,7 +28,7 @@ export interface PillarScore {
 }
 
 export interface HealthFlag {
-  code: 'downgrade' | 'dormant' | 'onboarding' | 'low_signal' | 'multi_workspace';
+  code: 'downgrade' | 'dormant' | 'onboarding' | 'low_signal' | 'multi_workspace' | 'missing_data';
   severity: Severity;
   title: string;
   detail: string;
@@ -42,7 +42,16 @@ export interface AnalysisWindow {
   end: string;
   observableDays: number;
   unobservableDays: number;
-  baseline: { start: string; end: string; calendarDays: number; observableDays: number; sufficient: boolean };
+  /** Days inside the window the export has no data for (ingestion gaps). */
+  missingDataDays: string[];
+  baseline: {
+    start: string;
+    end: string;
+    calendarDays: number;
+    observableDays: number;
+    missingDataDays: string[];
+    sufficient: boolean;
+  };
 }
 
 export interface StatusOverride {
@@ -95,7 +104,7 @@ export interface AccountHealth {
   };
 }
 
-export type WeeklyActivity = { weekStart: string } & Record<EventType, number>;
+export type WeeklyActivity = { weekStart: string; missingDays: string[] } & Record<EventType, number>;
 
 export interface AccountDetail extends AccountHealth {
   asOf: string;

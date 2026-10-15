@@ -670,3 +670,54 @@ describe('queue ordering and API filters', () => {
     expect(() => controller.list({ days: '365' })).toThrow(AppException);
   });
 });
+
+// ---------- A day with no data is missing data, not inactivity ----------
+
+describe('missing-data days (ingestion gaps)', () => {
+  const gap = addDays(REF_DAY, -5);
+  const gapCtx: ScoreContext = { ...ctx, gapDays: [gap] };
+
+  it('lists missing days separately for the window and the baseline', () => {
+    expect(buildWindow(gapCtx, 7)).toMatchObject({ missingDataDays: [gap], baseline: { missingDataDays: [] } });
+    expect(buildWindow(gapCtx, 3)).toMatchObject({ missingDataDays: [], baseline: { missingDataDays: [gap] } });
+    expect(buildWindow(ctx, 30).missingDataDays).toEqual([]);
+  });
+
+  it('flags an account whose period includes a missing day, without touching the score', () => {
+    const h = scoreAccount(record(healthyEvents()), gapCtx);
+    const flag = h.flags.find((f) => f.code === 'missing_data');
+    expect(flag).toMatchObject({ severity: 'info', penalty: 0 });
+    expect(flag!.detail).toContain('not inactivity');
+    expect(h.score).toBe(h.baseScore);
+    expect(scoreAccount(record(healthyEvents()), ctx).flags.map((f) => f.code)).not.toContain('missing_data');
+  });
+
+  it('says when the missing day only affects the momentum comparison', () => {
+    const h = scoreAccount(record(healthyEvents()), gapCtx, settings(3));
+    expect(h.flags.find((f) => f.code === 'missing_data')!.detail).toContain('momentum compares against');
+  });
+
+  it('does not count a missing day toward the dormancy threshold', () => {
+    const last = [ev(22, 'guide_viewed')]; // 22 calendar days of silence
+    const dormant = (c: ScoreContext) => scoreAccount(record(last), c).overrides.some((o) => o.code === 'dormant');
+    expect(dormant(ctx)).toBe(true);
+    expect(dormant(gapCtx)).toBe(false); // 22 − 1 missing day = 21, not more than 21
+
+    const h = scoreAccount(record([ev(30, 'guide_viewed')]), gapCtx);
+    expect(h.overrides.find((o) => o.code === 'dormant')!.reason).toContain('29 days, not counting 1 day missing from the export');
+  });
+
+  it('a missing day before the last event does not reduce the silence', () => {
+    const early = { ...ctx, gapDays: [addDays(REF_DAY, -40)] };
+    expect(scoreAccount(record([ev(22, 'guide_viewed')]), early).overrides.map((o) => o.code)).toContain('dormant');
+  });
+
+  it('marks the week containing a missing day on the weekly activity chart', () => {
+    const service = new HealthService({ get: () => ({ ...gapCtx, records: [record(healthyEvents())], issues: [] }) as Dataset } as unknown as DatasetService);
+    const weekly = service.detail('acme')!.weekly;
+    const marked = weekly.filter((w) => w.missingDays.length);
+    expect(marked).toHaveLength(1);
+    expect(marked[0].missingDays).toEqual([gap]);
+    expect(gap >= marked[0].weekStart && gap <= addDays(marked[0].weekStart, 6)).toBe(true);
+  });
+});

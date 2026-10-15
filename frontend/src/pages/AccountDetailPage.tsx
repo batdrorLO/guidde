@@ -56,7 +56,9 @@ function Detail({ a, back }: { a: AccountDetail; back: string }) {
           </p>
           <p className="mt-1 text-sm text-slate-500">
             Scored over {formatDay(w.start)} – {formatDate(w.end)} ({w.lookbackDays} days
-            {w.unobservableDays > 0 && `, ${w.observableDays} with data`}) · data as of {formatDate(w.referenceDate)}
+            {w.unobservableDays > 0 && `, ${w.observableDays} with data`})
+            {w.missingDataDays.length > 0 && ` · no data in the export for ${w.missingDataDays.map(formatDay).join(', ')}`} · data as of{' '}
+            {formatDate(w.referenceDate)}
           </p>
           <p className="mt-3 text-slate-700">{a.summary}</p>
         </div>

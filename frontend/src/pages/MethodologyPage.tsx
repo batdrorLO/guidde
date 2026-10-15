@@ -61,8 +61,11 @@ export function MethodologyPage() {
           “Now” is the latest event in the export ({formatDate(w.referenceDate)}), never today’s date. The analysis period is the{' '}
           {N} calendar days ending on that day, both ends included (default {c.lookback.defaultDays}; presets{' '}
           {c.lookback.presets.join(', ')}; or any whole number from {c.lookback.minDays} to {c.lookback.maxDays}). Days the export
-          can’t show — before it starts, or days with no events from <em>any</em> account (an ingestion gap) — are left out
-          rather than counted as inactive{w.unobservableDays > 0 && `: ${w.unobservableDays} of the current ${N} days`}.
+          can’t show — before it starts, or days with no events from <em>any</em> account — are left out rather than counted as
+          inactive{w.unobservableDays > 0 && `: ${w.unobservableDays} of the current ${N} days`}. A day with no events from
+          anyone is treated as <strong>missing data</strong> (an ingestion gap), not as every customer going quiet at once: it
+          doesn’t count toward Activity, Momentum or the dormancy count, affected accounts get a “Missing data” flag, and
+          activity charts mark that week.
         </p>
         <h3 className="mt-4 font-medium text-slate-900">Minimum tenure</h3>
         <p className="mt-1 text-sm text-slate-700">
