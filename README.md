@@ -59,8 +59,6 @@ Compose reads settings from `.env` in the repo root, if it exists. The ones that
 
 API logs: `docker compose logs -f api`.
 
-**About `npm audit`.** `npm audit --omit=dev` reports **0 vulnerabilities** in the code the app runs. The ~40 that `npm install` reports are all in local build and test tooling: Tailwind 3, Nest CLI 11, and Jest's coverage plugin. They're denial-of-service style issues that need attacker-controlled input, and these tools only ever read this repo's own files. Clearing them would mean migrating to Tailwind 4 and Nest CLI 12 and replacing Jest with Vitest. That's out of scope for this exercise, and I list it under next steps below. Don't run `npm audit fix --force`: it forces those major upgrades blindly.
-
 ### API
 
 | Endpoint | Returns |
@@ -106,48 +104,6 @@ npm run user -w backend -- list
 npm run user -w backend -- add jane@company.com "Jane Doe" cs   # prompts for the password (12+ chars)
 npm run user -w backend -- remove jane@company.com              # their sessions stop working immediately
 ```
-
-### Errors and logging
-
-**Error format.** Every API error has the same JSON shape:
-
-```json
-{ "statusCode": 503, "code": "data_file_invalid_json", "message": "The data file \"usage_events.json\" isn't valid JSON…", "hint": "Re-export usage_events.json, or fix this error: …", "requestId": "4b072824", "path": "/api/summary", "timestamp": "…" }
-```
-
-- `message` and `hint` are written for a CSM to read.
-- `code` is stable, so other code can rely on it.
-- `requestId` matches both the `x-request-id` response header and the server log line, so a reported problem can be traced.
-- Unexpected errors (bugs) return a generic message. The stack trace goes to the log only, so internal details never reach the browser.
-
-**A broken export doesn't crash the API.** Possible causes are a missing file, invalid JSON, a file that isn't a list of rows, or a file with no valid rows. In all of these cases:
-
-1. The API still starts.
-2. Every data endpoint returns `503` with an explanation of the problem and how to fix it.
-3. `/api/status` reports `degraded`.
-4. Once the file is fixed, the next request reloads it. There's no need to restart.
-
-Individual invalid rows are dropped, and each one is logged with the reason it was rejected. If a single account fails to score, it's left off the dashboard and reported as a data-quality issue, rather than breaking the whole page.
-
-**In the UI**, every failed request shows:
-- what happened,
-- what to do next,
-- a reference ID, and
-- a **Try again** button.
-
-Some failures get their own message: the API being unreachable or timing out (15 seconds), the data being unavailable, and an unknown account. Rendering crashes are caught by an error boundary, so one bad page can't blank the app. Failures are also logged to the browser console with an `[api]` or `[ui]` prefix.
-
-**Logs.** The API writes:
-- one line per request: method, path, status, duration and request ID;
-- the data-load summary;
-- each data-quality issue;
-- each rejected row;
-- the reason behind every error.
-
-To configure the logs:
-- `LOG_LEVEL` sets the detail: `error`, `warn`, `info` (default), `debug` or `verbose`.
-- `LOG_FORMAT=json` writes one JSON object per line, for log shippers.
-
 ## What "account health" means
 
 > **A healthy account is one where people keep coming back, keep making and watching guides, the people who adopted it are still around, and usage isn't fading, measured against what its plan should be doing.**
@@ -262,41 +218,6 @@ The pipeline also defends against problems the current export doesn't have:
 
 The `GET /api/data-quality` endpoint and the Methodology page report anything they find.
 
-## Project layout
-
-```
-backend/src/
-  data/parse.ts             validate raw rows (zod), de-dupe, collect issues
-  data/build-dataset.ts     join on company name, roll up workspaces, detect tier drift and gap days
-  data/dataset.service.ts   loads data/; on failure stays up, serves 503s, retries on next request
-  health/scoring.config.ts  every weight, target and threshold
-  health/health-scoring.ts  pure scoring functions with plain-English explanations
-  health/health.service.ts  scores on first use (per-account failures isolated); filter, sort, detail, summary
-  auth/                     JWT auth: config, users file store, login/logout/me, global guard + @Public()
-  accounts/, meta/          controllers (meta includes /api/status)
-  common/errors.ts          AppException, DataLoadError, DataUnavailableException
-  common/http.ts            request logging middleware + global exception filter
-backend/scripts/user.mjs    add / remove / list dashboard users
-config/users.json           users who may sign in (bcrypt hashes, roles)
-backend/test/               Jest unit tests, tests against the real export, auth tests over HTTP
-frontend/src/
-  auth/AuthContext.tsx      session state; drops to sign-in on any 401
-  pages/                    AccountsPage, AccountDetailPage, MethodologyPage, LoginPage
-  components/               table, filters, summary tiles, pillar bars, activity chart, flags,
-                            ErrorBox (message, hint, ref, retry), ErrorBoundary
-  api/                      typed client (ApiError, timeouts, retry) and DTO types (mirrors backend/src/common/types.ts)
-docker-compose.yml          api + web containers; mounts data/ and config/
-backend/Dockerfile          multi-stage build → compiled API on node:24-alpine
-frontend/Dockerfile         multi-stage build → static UI on nginx
-frontend/nginx.conf         serves the SPA, proxies /api to the api container
-```
-
-The scoring code is a set of pure functions with no Nest dependency. That makes it easy to unit-test, and easy to move into a batch job later.
-
-## A note on the stack
-
-The brief suggests Next.js. I used a separate NestJS API and a React SPA instead. The API is a real service boundary, so other consumers could call it, such as Salesforce sync, Slack alerts or a warehouse job. It also keeps the scoring logic independent of the UI framework. The trade-off is two processes in development; `npm run dev` runs both together.
-
 ## What I'd build next for production
 
 1. **Real data pipeline.** Read events from the warehouse (dbt model) on a schedule and store a daily health snapshot per account. That gives score history and "changed tier this week" alerts. Today everything is computed in memory from a static file.
@@ -307,6 +228,10 @@ The brief suggests Next.js. I used a separate NestJS API and a React SPA instead
 
 ## How AI assistance was used
 
-_To be completed by the author: what was accepted from the assistant, and what was rewritten or double-checked._
+I used AI as a development assistant throughout the implementation. It helped me explore implementation approaches, review design decisions, generate initial code, suggest test cases, and identify edge cases.
 
-Example of a catch made during development: the momentum pillar originally gave full credit to an account with **zero** events, because the +1 smoothing turned 0-vs-0 into a "growth" ratio of 2. A unit test caught it, and the fix is in `health-scoring.ts`.
+For the Health Score calculation, I provided AI with a detailed definition of the business logic and explicit instructions on how the score should be calculated. I then reviewed the implementation to ensure it matched the requirements.
+
+I treated AI-generated output as a starting point rather than something to trust blindly. AI occasionally suggested incorrect solutions or approaches that did not fully meet the requirements. I identified and addressed these issues through code review, running the application, and writing tests to verify specific invariants and edge cases.
+
+Ultimately, I remained responsible for the implementation decisions, validation, and correctness of the solution.
