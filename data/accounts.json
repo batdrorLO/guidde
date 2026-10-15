@@ -1,0 +1,202 @@
+[
+  {
+    "company_name": "Brightside Logistics",
+    "domain": "brightsidelogi.com",
+    "plan_tier": "Pro",
+    "contract_start_date": "2026-04-14",
+    "arr_usd": 8976,
+    "csm_owner": "Hannah Levenson"
+  },
+  {
+    "company_name": "Nimbus Analytics",
+    "domain": "nimbusanalytic.com",
+    "plan_tier": "Free",
+    "contract_start_date": "2024-12-15",
+    "arr_usd": 0,
+    "csm_owner": "Hannah Levenson"
+  },
+  {
+    "company_name": "Foxglove Media",
+    "domain": "foxglovemedia.com",
+    "plan_tier": "Pro",
+    "contract_start_date": "2024-07-20",
+    "arr_usd": 30981,
+    "csm_owner": "Bar Harpazi"
+  },
+  {
+    "company_name": "Cobalt Financial",
+    "domain": "cobaltfinancia.com",
+    "plan_tier": "Free",
+    "contract_start_date": "2024-09-20",
+    "arr_usd": 0,
+    "csm_owner": "Adar Benedek-Alon"
+  },
+  {
+    "company_name": "Marlowe & Reed",
+    "domain": "marlowereed.com",
+    "plan_tier": "Enterprise",
+    "contract_start_date": "2026-05-10",
+    "arr_usd": 86853,
+    "csm_owner": "Bar Harpazi"
+  },
+  {
+    "company_name": "Harborview Health",
+    "domain": "harborviewheal.com",
+    "plan_tier": "Pro",
+    "contract_start_date": "2025-12-08",
+    "arr_usd": 15055,
+    "csm_owner": "Adar Benedek-Alon"
+  },
+  {
+    "company_name": "Tidewater Retail",
+    "domain": "tidewaterretai.com",
+    "plan_tier": "Free",
+    "contract_start_date": "2025-04-22",
+    "arr_usd": 0,
+    "csm_owner": "Hannah Levenson"
+  },
+  {
+    "company_name": "Ashgrove Legal",
+    "domain": "ashgrovelegal.com",
+    "plan_tier": "Pro",
+    "contract_start_date": "2025-05-29",
+    "arr_usd": 27782,
+    "csm_owner": "Adar Benedek-Alon"
+  },
+  {
+    "company_name": "Pinnacle Manufacturing",
+    "domain": "pinnaclemanufa.com",
+    "plan_tier": "Enterprise",
+    "contract_start_date": "2025-01-31",
+    "arr_usd": 185568,
+    "csm_owner": "Hannah Levenson"
+  },
+  {
+    "company_name": "Cedarline Insurance",
+    "domain": "cedarlineinsur.com",
+    "plan_tier": "Enterprise",
+    "contract_start_date": "2025-04-24",
+    "arr_usd": 65656,
+    "csm_owner": "Adar Benedek-Alon"
+  },
+  {
+    "company_name": "Redwood Studios",
+    "domain": "redwoodstudios.com",
+    "plan_tier": "Enterprise",
+    "contract_start_date": "2024-08-21",
+    "arr_usd": 139800,
+    "csm_owner": "Kamille Elram"
+  },
+  {
+    "company_name": "Quarrystone Consulting",
+    "domain": "quarrystonecon.com",
+    "plan_tier": "Enterprise",
+    "contract_start_date": "2026-03-31",
+    "arr_usd": 218346,
+    "csm_owner": "Kamille Elram"
+  },
+  {
+    "company_name": "Gladwell Education",
+    "domain": "gladwelleducat.com",
+    "plan_tier": "Enterprise",
+    "contract_start_date": "2026-02-24",
+    "arr_usd": 106024,
+    "csm_owner": "Hannah Levenson"
+  },
+  {
+    "company_name": "Sable Robotics",
+    "domain": "sablerobotics.com",
+    "plan_tier": "Pro",
+    "contract_start_date": "2025-02-06",
+    "arr_usd": 28830,
+    "csm_owner": "Adar Benedek-Alon"
+  },
+  {
+    "company_name": "Lighthouse Ventures",
+    "domain": "lighthousevent.com",
+    "plan_tier": "Free",
+    "contract_start_date": "2025-05-18",
+    "arr_usd": 0,
+    "csm_owner": "Kamille Elram"
+  },
+  {
+    "company_name": "Northfield Bank",
+    "domain": "northfieldbank.com",
+    "plan_tier": "Pro",
+    "contract_start_date": "2024-07-22",
+    "arr_usd": 10339,
+    "csm_owner": "Kamille Elram"
+  },
+  {
+    "company_name": "Vantage Point Realty",
+    "domain": "vantagepointre.com",
+    "plan_tier": "Pro",
+    "contract_start_date": "2025-09-08",
+    "arr_usd": 13354,
+    "csm_owner": "Bar Harpazi"
+  },
+  {
+    "company_name": "Emberton Foods",
+    "domain": "embertonfoods.com",
+    "plan_tier": "Pro",
+    "contract_start_date": "2024-07-30",
+    "arr_usd": 30549,
+    "csm_owner": "Kamille Elram"
+  },
+  {
+    "company_name": "Silvercreek Biotech",
+    "domain": "silvercreekbio.com",
+    "plan_tier": "Pro",
+    "contract_start_date": "2026-03-20",
+    "arr_usd": 15505,
+    "csm_owner": "Hannah Levenson"
+  },
+  {
+    "company_name": "Crestwood Staffing",
+    "domain": "crestwoodstaff.com",
+    "plan_tier": "Enterprise",
+    "contract_start_date": "2025-04-01",
+    "arr_usd": 115186,
+    "csm_owner": "Hannah Levenson"
+  },
+  {
+    "company_name": "Alderman Freight",
+    "domain": "aldermanfreigh.com",
+    "plan_tier": "Free",
+    "contract_start_date": "2024-10-13",
+    "arr_usd": 0,
+    "csm_owner": "Adar Benedek-Alon"
+  },
+  {
+    "company_name": "Birchwood Dental Group",
+    "domain": "birchwooddenta.com",
+    "plan_tier": "Free",
+    "contract_start_date": "2024-12-21",
+    "arr_usd": 0,
+    "csm_owner": "Bar Harpazi"
+  },
+  {
+    "company_name": "Fernhill Energy",
+    "domain": "fernhillenergy.com",
+    "plan_tier": "Enterprise",
+    "contract_start_date": "2024-07-27",
+    "arr_usd": 165285,
+    "csm_owner": "Kamille Elram"
+  },
+  {
+    "company_name": "Osprey Aerospace",
+    "domain": "ospreyaerospac.com",
+    "plan_tier": "Pro",
+    "contract_start_date": "2025-09-06",
+    "arr_usd": 32411,
+    "csm_owner": "Adar Benedek-Alon"
+  },
+  {
+    "company_name": "Thistle & Vine Events",
+    "domain": "thistlevineeve.com",
+    "plan_tier": "Enterprise",
+    "contract_start_date": "2025-03-04",
+    "arr_usd": 197969,
+    "csm_owner": "Bar Harpazi"
+  }
+]

@@ -1,0 +1,4322 @@
+[
+  {
+    "event_id": "evt_b001f92289",
+    "workspace_id": "ws_823ac462",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_viewed",
+    "user_id": "user_1d518e75",
+    "timestamp": "2026-06-16T00:54:25Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_27bdc74708",
+    "workspace_id": "ws_ac633121",
+    "company_name": "Lighthouse Ventures",
+    "event_type": "login",
+    "user_id": "user_97975f63",
+    "timestamp": "2026-06-16T01:08:48Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_4ce0313f6e",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_viewed",
+    "user_id": "user_0954b296",
+    "timestamp": "2026-06-16T03:13:34Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_16a4f6542f",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "guide_shared",
+    "user_id": "user_c8438926",
+    "timestamp": "2026-06-16T03:41:18Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_504cff5e6c",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "login",
+    "user_id": "user_6afb3298",
+    "timestamp": "2026-06-16T06:08:16Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_80af153d35",
+    "workspace_id": "ws_00f2801a",
+    "company_name": "Alderman Freight",
+    "event_type": "user_invited",
+    "user_id": "user_0de8d56e",
+    "timestamp": "2026-06-16T06:45:14Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_ec26578a9f",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_shared",
+    "user_id": "user_da42a787",
+    "timestamp": "2026-06-16T08:54:31Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_482866925a",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "login",
+    "user_id": "user_d456e9b0",
+    "timestamp": "2026-06-16T22:59:34Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_4b80bead19",
+    "workspace_id": "ws_d3568e5c",
+    "company_name": "Cedarline Insurance",
+    "event_type": "login",
+    "user_id": "user_5ee802aa",
+    "timestamp": "2026-06-17T07:27:25Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_ca689b0290",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "guide_shared",
+    "user_id": "user_95961e15",
+    "timestamp": "2026-06-17T20:14:47Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_da2b0337ae",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "guide_shared",
+    "user_id": "user_64dc679d",
+    "timestamp": "2026-06-17T23:08:38Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_afba1592b0",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "user_invited",
+    "user_id": "user_95961e15",
+    "timestamp": "2026-06-17T23:52:04Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_d4cdf73fa9",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "guide_viewed",
+    "user_id": "user_c78dc60f",
+    "timestamp": "2026-06-18T03:24:08Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_7ea23e7524",
+    "workspace_id": "ws_ac633121",
+    "company_name": "Lighthouse Ventures",
+    "event_type": "guide_shared",
+    "user_id": "user_2434232c",
+    "timestamp": "2026-06-18T07:48:06Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_e7e2f62326",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "guide_viewed",
+    "user_id": "user_80ecbc30",
+    "timestamp": "2026-06-18T20:38:00Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_2fc01b1491",
+    "workspace_id": "ws_99d45316",
+    "company_name": "Emberton Foods",
+    "event_type": "guide_shared",
+    "user_id": "user_72736258",
+    "timestamp": "2026-06-18T21:32:30Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_9a396c2191",
+    "workspace_id": "ws_9cbc74f2",
+    "company_name": "Brightside Logistics",
+    "event_type": "user_invited",
+    "user_id": "user_63fd836b",
+    "timestamp": "2026-06-18T21:33:40Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_2e363186d2",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "user_invited",
+    "user_id": "user_2ac2229c",
+    "timestamp": "2026-06-19T00:06:44Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_734bb015ec",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "login",
+    "user_id": "user_bdb9305f",
+    "timestamp": "2026-06-19T02:07:31Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_c4cc79151e",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "user_invited",
+    "user_id": "user_4b0491d9",
+    "timestamp": "2026-06-19T02:41:45Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_49fa3715d7",
+    "workspace_id": "ws_00f2801a",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_viewed",
+    "user_id": "user_3df5cce4",
+    "timestamp": "2026-06-19T02:49:41Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_125aac64f2",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "guide_created",
+    "user_id": "user_64dc679d",
+    "timestamp": "2026-06-19T03:14:20Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_fe051d1034",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "guide_viewed",
+    "user_id": "user_1518000a",
+    "timestamp": "2026-06-19T03:56:23Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_130a6c1fed",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "guide_viewed",
+    "user_id": "user_64dc679d",
+    "timestamp": "2026-06-19T05:41:42Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_eff3566016",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_viewed",
+    "user_id": "user_a48d3a0b",
+    "timestamp": "2026-06-19T08:46:38Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_5f5edd9d39",
+    "workspace_id": "ws_99d45316",
+    "company_name": "Emberton Foods",
+    "event_type": "guide_viewed",
+    "user_id": "user_d77fd41d",
+    "timestamp": "2026-06-19T19:11:14Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_211bbbf5dd",
+    "workspace_id": "ws_12251f4b",
+    "company_name": "Silvercreek Biotech",
+    "event_type": "guide_viewed",
+    "user_id": "user_b3ea2bde",
+    "timestamp": "2026-06-19T20:18:39Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_c328ba7fb6",
+    "workspace_id": "ws_bedc7c0d",
+    "company_name": "Fernhill Energy",
+    "event_type": "guide_viewed",
+    "user_id": "user_fa9d8a0c",
+    "timestamp": "2026-06-19T20:21:12Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_a7e11054b6",
+    "workspace_id": "ws_bedc7c0d",
+    "company_name": "Fernhill Energy",
+    "event_type": "guide_shared",
+    "user_id": "user_fa9d8a0c",
+    "timestamp": "2026-06-19T21:10:02Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_bbc11d9f06",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_created",
+    "user_id": "user_7e3d16cb",
+    "timestamp": "2026-06-19T23:43:52Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_64bfbf8236",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "guide_viewed",
+    "user_id": "user_fcefa37b",
+    "timestamp": "2026-06-20T01:52:46Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_00ea316ea1",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "login",
+    "user_id": "user_95961e15",
+    "timestamp": "2026-06-20T02:03:09Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_9747c8ff45",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "login",
+    "user_id": "user_e79060c3",
+    "timestamp": "2026-06-20T07:30:51Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_13dc535673",
+    "workspace_id": "ws_03ba7f29",
+    "company_name": "Tidewater Retail",
+    "event_type": "login",
+    "user_id": "user_03db9d3c",
+    "timestamp": "2026-06-21T04:04:03Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_06f034f235",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "login",
+    "user_id": "user_559b6af6",
+    "timestamp": "2026-06-21T20:10:51Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_8a5d83d442",
+    "workspace_id": "ws_ce562f5d",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_shared",
+    "user_id": "user_3b2f3794",
+    "timestamp": "2026-06-21T22:21:27Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_c170d5989c",
+    "workspace_id": "ws_9a4a399b",
+    "company_name": "Redwood Studios",
+    "event_type": "login",
+    "user_id": "user_ed2f2e8c",
+    "timestamp": "2026-06-22T03:11:03Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_1888c9dfad",
+    "workspace_id": "ws_00f2801a",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_viewed",
+    "user_id": "user_74c0c56f",
+    "timestamp": "2026-06-22T03:17:47Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_ddaff3cc6f",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_viewed",
+    "user_id": "user_4634a3e3",
+    "timestamp": "2026-06-22T04:14:16Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_d1260a9417",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_viewed",
+    "user_id": "user_a9bb956a",
+    "timestamp": "2026-06-22T19:32:06Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_52090a6cfe",
+    "workspace_id": "ws_dae7cd82",
+    "company_name": "Northfield Bank",
+    "event_type": "guide_shared",
+    "user_id": "user_6aa5a575",
+    "timestamp": "2026-06-23T01:18:01Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_833c1b4b8f",
+    "workspace_id": "ws_99d45316",
+    "company_name": "Emberton Foods",
+    "event_type": "guide_viewed",
+    "user_id": "user_4282cb1f",
+    "timestamp": "2026-06-23T02:45:05Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_e42786fd7c",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_viewed",
+    "user_id": "user_64e37141",
+    "timestamp": "2026-06-23T02:53:48Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_397daba25d",
+    "workspace_id": "ws_d3568e5c",
+    "company_name": "Cedarline Insurance",
+    "event_type": "login",
+    "user_id": "user_882f703e",
+    "timestamp": "2026-06-23T06:25:48Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_ad7e730c3b",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "guide_created",
+    "user_id": "user_80ecbc30",
+    "timestamp": "2026-06-23T07:58:35Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_d46267c7b1",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "user_invited",
+    "user_id": "user_027ebdb6",
+    "timestamp": "2026-06-23T08:49:14Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_56e424f1d7",
+    "workspace_id": "ws_d3568e5c",
+    "company_name": "Cedarline Insurance",
+    "event_type": "login",
+    "user_id": "user_2c2ed02a",
+    "timestamp": "2026-06-24T00:22:45Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_c52a5a5786",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "login",
+    "user_id": "user_55aa47ae",
+    "timestamp": "2026-06-24T01:32:27Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_97e0b9abbc",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_viewed",
+    "user_id": "user_4634a3e3",
+    "timestamp": "2026-06-24T01:37:59Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_4378c3836f",
+    "workspace_id": "ws_9cbc74f2",
+    "company_name": "Brightside Logistics",
+    "event_type": "login",
+    "user_id": "user_0a6ca1ab",
+    "timestamp": "2026-06-24T01:57:25Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_e4ffc4da57",
+    "workspace_id": "ws_ac633121",
+    "company_name": "Lighthouse Ventures",
+    "event_type": "guide_created",
+    "user_id": "user_42f6843b",
+    "timestamp": "2026-06-24T03:01:54Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_e21f8362b0",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "login",
+    "user_id": "user_20a0bd02",
+    "timestamp": "2026-06-24T06:03:14Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_da885c0fa8",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "login",
+    "user_id": "user_d2a34fb6",
+    "timestamp": "2026-06-24T20:30:33Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_785c028c5f",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "guide_created",
+    "user_id": "user_80ce99f9",
+    "timestamp": "2026-06-24T21:28:57Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_cf3a2d8cb2",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_viewed",
+    "user_id": "user_cc2ddec7",
+    "timestamp": "2026-06-24T21:44:25Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_edcc3812b5",
+    "workspace_id": "ws_9a4a399b",
+    "company_name": "Redwood Studios",
+    "event_type": "user_invited",
+    "user_id": "user_b3ff8410",
+    "timestamp": "2026-06-24T22:45:07Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_ad134cc2a1",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "guide_created",
+    "user_id": "user_1d4f9a27",
+    "timestamp": "2026-06-25T02:10:49Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_a66954e807",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "user_invited",
+    "user_id": "user_55aa47ae",
+    "timestamp": "2026-06-25T03:30:39Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_7a446da206",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "login",
+    "user_id": "user_5640411b",
+    "timestamp": "2026-06-25T03:35:33Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_f1299552e1",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "guide_created",
+    "user_id": "user_2266bdb2",
+    "timestamp": "2026-06-25T05:25:58Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_23c4db5b52",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_shared",
+    "user_id": "user_90843ed4",
+    "timestamp": "2026-06-25T05:31:50Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_fa246c64d4",
+    "workspace_id": "ws_03ba7f29",
+    "company_name": "Tidewater Retail",
+    "event_type": "guide_viewed",
+    "user_id": "user_1320f42a",
+    "timestamp": "2026-06-25T06:39:29Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_6ac969888e",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "guide_created",
+    "user_id": "user_027ebdb6",
+    "timestamp": "2026-06-25T06:44:42Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_afef6f9a3d",
+    "workspace_id": "ws_ac633121",
+    "company_name": "Lighthouse Ventures",
+    "event_type": "login",
+    "user_id": "user_56471f6d",
+    "timestamp": "2026-06-25T07:29:18Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_f4e82a3a3a",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "login",
+    "user_id": "user_80f70953",
+    "timestamp": "2026-06-25T19:31:20Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_715a5fe8bb",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_created",
+    "user_id": "user_5640411b",
+    "timestamp": "2026-06-25T20:35:54Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_08113c9ef6",
+    "workspace_id": "ws_4fdf6095",
+    "company_name": "Pinnacle Manufacturing",
+    "event_type": "login",
+    "user_id": "user_6166dfa9",
+    "timestamp": "2026-06-25T21:43:53Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_a283d5ca99",
+    "workspace_id": "ws_00f2801a",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_viewed",
+    "user_id": "user_73249a86",
+    "timestamp": "2026-06-26T08:19:43Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_4927a5abf0",
+    "workspace_id": "ws_dae7cd82",
+    "company_name": "Northfield Bank",
+    "event_type": "login",
+    "user_id": "user_a4dba633",
+    "timestamp": "2026-06-26T21:10:14Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_335142bb95",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_created",
+    "user_id": "user_d9ab0b9a",
+    "timestamp": "2026-06-26T21:32:49Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_6cf0066fb2",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_viewed",
+    "user_id": "user_250a0336",
+    "timestamp": "2026-06-26T23:17:13Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_0420a6a91e",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_viewed",
+    "user_id": "user_59d11e59",
+    "timestamp": "2026-06-27T07:41:07Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_3354a31bd7",
+    "workspace_id": "ws_4fdf6095",
+    "company_name": "Pinnacle Manufacturing",
+    "event_type": "guide_created",
+    "user_id": "user_bbd28d58",
+    "timestamp": "2026-06-27T20:09:26Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_abed2dff8d",
+    "workspace_id": "ws_58c4f123",
+    "company_name": "Marlowe & Reed",
+    "event_type": "guide_shared",
+    "user_id": "user_8d457f42",
+    "timestamp": "2026-06-27T23:23:17Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_4e4ff168fd",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "user_invited",
+    "user_id": "user_da42a787",
+    "timestamp": "2026-06-29T08:52:59Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_cb25c6961a",
+    "workspace_id": "ws_00f2801a",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_viewed",
+    "user_id": "user_3df5cce4",
+    "timestamp": "2026-06-29T19:58:02Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_989bd4ffb9",
+    "workspace_id": "ws_00f2801a",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_viewed",
+    "user_id": "user_3df5cce4",
+    "timestamp": "2026-06-29T23:27:04Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_7a9fcc32a7",
+    "workspace_id": "ws_df3efb56",
+    "company_name": "Birchwood Dental Group",
+    "event_type": "guide_viewed",
+    "user_id": "user_710b39ee",
+    "timestamp": "2026-06-29T23:59:50Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_7733e05928",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "user_invited",
+    "user_id": "user_6ba86986",
+    "timestamp": "2026-06-30T00:04:32Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_2c4a09cb73",
+    "workspace_id": "ws_00f2801a",
+    "company_name": "Alderman Freight",
+    "event_type": "login",
+    "user_id": "user_73249a86",
+    "timestamp": "2026-06-30T02:34:28Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_9b15c69e31",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_shared",
+    "user_id": "user_62f00d43",
+    "timestamp": "2026-06-30T08:16:37Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_02f57fc877",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_created",
+    "user_id": "user_8fcc2427",
+    "timestamp": "2026-06-30T20:27:22Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_298eaea7aa",
+    "workspace_id": "ws_99d45316",
+    "company_name": "Emberton Foods",
+    "event_type": "login",
+    "user_id": "user_04d946fc",
+    "timestamp": "2026-06-30T20:43:42Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_ff09973750",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_created",
+    "user_id": "user_02779b03",
+    "timestamp": "2026-06-30T23:37:04Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_b31940ff34",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "guide_viewed",
+    "user_id": "user_a5a00b61",
+    "timestamp": "2026-07-01T01:16:52Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_bc197eacea",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "guide_created",
+    "user_id": "user_0bb97af3",
+    "timestamp": "2026-07-01T01:37:13Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_221aea80cf",
+    "workspace_id": "ws_ac633121",
+    "company_name": "Lighthouse Ventures",
+    "event_type": "guide_created",
+    "user_id": "user_68c72efb",
+    "timestamp": "2026-07-01T02:57:02Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_e07bf21ba9",
+    "workspace_id": "ws_823ac462",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_viewed",
+    "user_id": "user_f14f9cb4",
+    "timestamp": "2026-07-01T03:42:13Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_f7a1de5da9",
+    "workspace_id": "ws_51c7948b",
+    "company_name": "Harborview Health",
+    "event_type": "login",
+    "user_id": "user_cea0517c",
+    "timestamp": "2026-07-01T22:11:05Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_4f3c0a75a8",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "guide_viewed",
+    "user_id": "user_95961e15",
+    "timestamp": "2026-07-01T23:42:18Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_ddb53cb1ca",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "login",
+    "user_id": "user_c9fe2e2c",
+    "timestamp": "2026-07-01T23:52:42Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_8c1db463d7",
+    "workspace_id": "ws_dae7cd82",
+    "company_name": "Northfield Bank",
+    "event_type": "guide_viewed",
+    "user_id": "user_de75b362",
+    "timestamp": "2026-07-02T03:12:50Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_ec18c29ae9",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_viewed",
+    "user_id": "user_bdb9305f",
+    "timestamp": "2026-07-02T04:54:26Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_282bcfee3b",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "user_invited",
+    "user_id": "user_da42a787",
+    "timestamp": "2026-07-02T07:19:47Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_edaa13c5b3",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "login",
+    "user_id": "user_9053f3a0",
+    "timestamp": "2026-07-02T07:55:49Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_d2f5382e3d",
+    "workspace_id": "ws_51c7948b",
+    "company_name": "Harborview Health",
+    "event_type": "login",
+    "user_id": "user_cea0517c",
+    "timestamp": "2026-07-02T19:04:20Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_dffbeac3f5",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "login",
+    "user_id": "user_95961e15",
+    "timestamp": "2026-07-02T19:09:48Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_c3163dd017",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "login",
+    "user_id": "user_46df9285",
+    "timestamp": "2026-07-02T19:32:37Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_9e913d72c0",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_viewed",
+    "user_id": "user_2503e42f",
+    "timestamp": "2026-07-02T23:58:00Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_cd0a6a56e4",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "guide_created",
+    "user_id": "user_80ecbc30",
+    "timestamp": "2026-07-03T00:03:56Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_aa4a555008",
+    "workspace_id": "ws_00f2801a",
+    "company_name": "Alderman Freight",
+    "event_type": "login",
+    "user_id": "user_d7baafe1",
+    "timestamp": "2026-07-03T07:38:57Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_16e032ad8f",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "user_invited",
+    "user_id": "user_0954b296",
+    "timestamp": "2026-07-03T07:55:35Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_94d3b76107",
+    "workspace_id": "ws_9cbc74f2",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_viewed",
+    "user_id": "user_63fd836b",
+    "timestamp": "2026-07-03T08:40:57Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_4b7af9c596",
+    "workspace_id": "ws_d3568e5c",
+    "company_name": "Cedarline Insurance",
+    "event_type": "login",
+    "user_id": "user_e2f1d96f",
+    "timestamp": "2026-07-04T00:28:40Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_00904021bf",
+    "workspace_id": "ws_9a4a399b",
+    "company_name": "Redwood Studios",
+    "event_type": "guide_shared",
+    "user_id": "user_04bd255c",
+    "timestamp": "2026-07-04T00:37:48Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_2089fe0d81",
+    "workspace_id": "ws_99d45316",
+    "company_name": "Emberton Foods",
+    "event_type": "login",
+    "user_id": "user_9d50f4d4",
+    "timestamp": "2026-07-04T02:06:37Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_f952500b36",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "guide_viewed",
+    "user_id": "user_64dc679d",
+    "timestamp": "2026-07-04T04:15:13Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_3c389ede0d",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "guide_created",
+    "user_id": "user_d89e4f5d",
+    "timestamp": "2026-07-04T04:27:39Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_a02bc0ce83",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "guide_shared",
+    "user_id": "user_b5c6ee6c",
+    "timestamp": "2026-07-04T06:11:38Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_71016126a5",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "guide_viewed",
+    "user_id": "user_523a468c",
+    "timestamp": "2026-07-04T07:19:20Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_7c788cc669",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "login",
+    "user_id": "user_8f0c5aeb",
+    "timestamp": "2026-07-04T07:58:40Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_30ab1ba8a2",
+    "workspace_id": "ws_9a4a399b",
+    "company_name": "Redwood Studios",
+    "event_type": "user_invited",
+    "user_id": "user_f0f895aa",
+    "timestamp": "2026-07-05T22:02:58Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_f809a7945f",
+    "workspace_id": "ws_72b2b083",
+    "company_name": "Thistle & Vine Events",
+    "event_type": "guide_created",
+    "user_id": "user_7780509d",
+    "timestamp": "2026-07-06T00:21:24Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_f127fbba3e",
+    "workspace_id": "ws_bedc7c0d",
+    "company_name": "Fernhill Energy",
+    "event_type": "guide_created",
+    "user_id": "user_fa9d8a0c",
+    "timestamp": "2026-07-06T01:15:32Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_4e338e847b",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_viewed",
+    "user_id": "user_b19b4a85",
+    "timestamp": "2026-07-06T02:14:17Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_f7d7b1cca1",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_shared",
+    "user_id": "user_64e37141",
+    "timestamp": "2026-07-07T01:03:43Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_28771683d5",
+    "workspace_id": "ws_823ac462",
+    "company_name": "Alderman Freight",
+    "event_type": "login",
+    "user_id": "user_c95db841",
+    "timestamp": "2026-07-07T01:25:15Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_241fa980bc",
+    "workspace_id": "ws_72b2b083",
+    "company_name": "Thistle & Vine Events",
+    "event_type": "login",
+    "user_id": "user_e18f27cc",
+    "timestamp": "2026-07-07T23:59:08Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_a8815e8a44",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "guide_viewed",
+    "user_id": "user_a9b1e236",
+    "timestamp": "2026-07-08T01:04:05Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_4c4265932b",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_viewed",
+    "user_id": "user_390a5051",
+    "timestamp": "2026-07-08T03:00:12Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_d21b003b50",
+    "workspace_id": "ws_58c4f123",
+    "company_name": "Marlowe & Reed",
+    "event_type": "guide_viewed",
+    "user_id": "user_a9c26637",
+    "timestamp": "2026-07-08T03:33:28Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_fcd17fe1ce",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_viewed",
+    "user_id": "user_d3b08a3f",
+    "timestamp": "2026-07-08T03:37:43Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_c03123699e",
+    "workspace_id": "ws_ce562f5d",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_viewed",
+    "user_id": "user_a102089b",
+    "timestamp": "2026-07-08T04:50:40Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_b0bc99deaf",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_shared",
+    "user_id": "user_0e428a12",
+    "timestamp": "2026-07-08T05:23:15Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_17b2f1ca91",
+    "workspace_id": "ws_ac633121",
+    "company_name": "Lighthouse Ventures",
+    "event_type": "login",
+    "user_id": "user_2434232c",
+    "timestamp": "2026-07-08T05:34:58Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_67d9b3a6e9",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_viewed",
+    "user_id": "user_62f00d43",
+    "timestamp": "2026-07-08T05:50:08Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_af22f64ce5",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_shared",
+    "user_id": "user_d2a34fb6",
+    "timestamp": "2026-07-08T06:47:37Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_7bac6d2b3c",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_shared",
+    "user_id": "user_e79060c3",
+    "timestamp": "2026-07-08T07:09:23Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_a2aa0e8ced",
+    "workspace_id": "ws_bedc7c0d",
+    "company_name": "Fernhill Energy",
+    "event_type": "login",
+    "user_id": "user_55d291f0",
+    "timestamp": "2026-07-08T21:16:25Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_15ce2012fb",
+    "workspace_id": "ws_00f2801a",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_viewed",
+    "user_id": "user_17bacfd0",
+    "timestamp": "2026-07-09T03:20:54Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_3ad45d50a2",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_created",
+    "user_id": "user_9053f3a0",
+    "timestamp": "2026-07-09T07:36:50Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_8761d74322",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "guide_created",
+    "user_id": "user_95961e15",
+    "timestamp": "2026-07-09T08:03:15Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_0dada8f070",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "guide_created",
+    "user_id": "user_b5c6ee6c",
+    "timestamp": "2026-07-09T19:18:35Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_ea8a8bd2a7",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "guide_shared",
+    "user_id": "user_ac5455bf",
+    "timestamp": "2026-07-09T22:15:03Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_eb307a7f98",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "login",
+    "user_id": "user_7e3d16cb",
+    "timestamp": "2026-07-09T22:32:23Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_4e0022f77d",
+    "workspace_id": "ws_d3568e5c",
+    "company_name": "Cedarline Insurance",
+    "event_type": "user_invited",
+    "user_id": "user_882f703e",
+    "timestamp": "2026-07-10T00:25:10Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_aa6e9298c1",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "login",
+    "user_id": "user_1d4f9a27",
+    "timestamp": "2026-07-10T03:26:41Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_d5097eddb9",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "guide_created",
+    "user_id": "user_c8438926",
+    "timestamp": "2026-07-10T05:33:25Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_bb817f221a",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "guide_viewed",
+    "user_id": "user_0bb97af3",
+    "timestamp": "2026-07-10T07:06:48Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_9f3279b5cd",
+    "workspace_id": "ws_99d45316",
+    "company_name": "Emberton Foods",
+    "event_type": "guide_viewed",
+    "user_id": "user_72736258",
+    "timestamp": "2026-07-10T19:37:35Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_c09d31b7c2",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "login",
+    "user_id": "user_601ebbe1",
+    "timestamp": "2026-07-10T20:16:39Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_5624406b44",
+    "workspace_id": "ws_823ac462",
+    "company_name": "Alderman Freight",
+    "event_type": "login",
+    "user_id": "user_f14f9cb4",
+    "timestamp": "2026-07-10T20:57:07Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_e282e3891c",
+    "workspace_id": "ws_99d45316",
+    "company_name": "Emberton Foods",
+    "event_type": "guide_viewed",
+    "user_id": "user_9566b428",
+    "timestamp": "2026-07-10T22:37:08Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_2ca8838b89",
+    "workspace_id": "ws_823ac462",
+    "company_name": "Alderman Freight",
+    "event_type": "login",
+    "user_id": "user_f14f9cb4",
+    "timestamp": "2026-07-10T23:00:09Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_32866d9616",
+    "workspace_id": "ws_df3efb56",
+    "company_name": "Birchwood Dental Group",
+    "event_type": "login",
+    "user_id": "user_2e0c73b4",
+    "timestamp": "2026-07-11T00:20:29Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_a09fc18535",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "login",
+    "user_id": "user_620c117b",
+    "timestamp": "2026-07-11T03:17:12Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_9e8b6213a7",
+    "workspace_id": "ws_51c7948b",
+    "company_name": "Harborview Health",
+    "event_type": "guide_viewed",
+    "user_id": "user_cea0517c",
+    "timestamp": "2026-07-11T03:32:55Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_571ab04a9b",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "guide_created",
+    "user_id": "user_339e0279",
+    "timestamp": "2026-07-11T05:06:30Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_878f1304e8",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_viewed",
+    "user_id": "user_cc2ddec7",
+    "timestamp": "2026-07-11T08:39:40Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_776e47bba1",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "guide_shared",
+    "user_id": "user_e33cffad",
+    "timestamp": "2026-07-12T00:16:18Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_5f65797961",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "user_invited",
+    "user_id": "user_5640411b",
+    "timestamp": "2026-07-12T20:00:47Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_773629c859",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_viewed",
+    "user_id": "user_2ac2229c",
+    "timestamp": "2026-07-12T20:07:02Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_5ffcb7a57b",
+    "workspace_id": "ws_d3568e5c",
+    "company_name": "Cedarline Insurance",
+    "event_type": "login",
+    "user_id": "user_f3d57a3f",
+    "timestamp": "2026-07-12T20:56:43Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_d0f606489d",
+    "workspace_id": "ws_00f2801a",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_viewed",
+    "user_id": "user_17bacfd0",
+    "timestamp": "2026-07-12T21:49:18Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_220385ce5f",
+    "workspace_id": "ws_51c7948b",
+    "company_name": "Harborview Health",
+    "event_type": "login",
+    "user_id": "user_16bb87b6",
+    "timestamp": "2026-07-13T02:30:52Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_c0db8f63c1",
+    "workspace_id": "ws_9cbc74f2",
+    "company_name": "Brightside Logistics",
+    "event_type": "login",
+    "user_id": "user_63fd836b",
+    "timestamp": "2026-07-13T02:55:58Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_72fbb03dec",
+    "workspace_id": "ws_03ba7f29",
+    "company_name": "Tidewater Retail",
+    "event_type": "login",
+    "user_id": "user_edda96b2",
+    "timestamp": "2026-07-13T03:09:42Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_5c003d9231",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "guide_viewed",
+    "user_id": "user_fdedd6a7",
+    "timestamp": "2026-07-13T04:39:53Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_bd2002e33a",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_created",
+    "user_id": "user_12a4af9b",
+    "timestamp": "2026-07-13T19:44:38Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_89fcc99fef",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_created",
+    "user_id": "user_8fcc2427",
+    "timestamp": "2026-07-13T21:35:53Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_8e5fc16035",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "guide_viewed",
+    "user_id": "user_fe190210",
+    "timestamp": "2026-07-13T23:28:01Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_14c24aedf5",
+    "workspace_id": "ws_9cbc74f2",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_viewed",
+    "user_id": "user_63fd836b",
+    "timestamp": "2026-07-14T03:24:52Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_60a82eb12f",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "guide_viewed",
+    "user_id": "user_fcefa37b",
+    "timestamp": "2026-07-14T05:45:49Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_a80af932a3",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "guide_viewed",
+    "user_id": "user_2d06e9d5",
+    "timestamp": "2026-07-14T06:32:38Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_bacc74eaa4",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_viewed",
+    "user_id": "user_7e3d16cb",
+    "timestamp": "2026-07-14T19:08:23Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_9bc13d21d3",
+    "workspace_id": "ws_d3568e5c",
+    "company_name": "Cedarline Insurance",
+    "event_type": "login",
+    "user_id": "user_e2f1d96f",
+    "timestamp": "2026-07-14T20:02:49Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_420dde9a3b",
+    "workspace_id": "ws_03ba7f29",
+    "company_name": "Tidewater Retail",
+    "event_type": "guide_shared",
+    "user_id": "user_edda96b2",
+    "timestamp": "2026-07-14T21:00:18Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_2d7ff85515",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "user_invited",
+    "user_id": "user_df2f4fc5",
+    "timestamp": "2026-07-14T21:03:51Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_55531b7060",
+    "workspace_id": "ws_03ba7f29",
+    "company_name": "Tidewater Retail",
+    "event_type": "guide_shared",
+    "user_id": "user_03db9d3c",
+    "timestamp": "2026-07-14T22:15:56Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_55d1321d8d",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_viewed",
+    "user_id": "user_3e59b9c7",
+    "timestamp": "2026-07-15T03:36:58Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_bb56ec4000",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "login",
+    "user_id": "user_e79060c3",
+    "timestamp": "2026-07-16T00:56:54Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_958706fd06",
+    "workspace_id": "ws_bedc7c0d",
+    "company_name": "Fernhill Energy",
+    "event_type": "guide_created",
+    "user_id": "user_fa9d8a0c",
+    "timestamp": "2026-07-16T01:28:27Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_1c26ae3d85",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "guide_viewed",
+    "user_id": "user_1518000a",
+    "timestamp": "2026-07-16T01:47:56Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_e82545c5a5",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_viewed",
+    "user_id": "user_59d11e59",
+    "timestamp": "2026-07-16T20:39:48Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_84dc75dc5a",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_viewed",
+    "user_id": "user_390a5051",
+    "timestamp": "2026-07-16T23:49:02Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_91a0acca52",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_viewed",
+    "user_id": "user_02779b03",
+    "timestamp": "2026-07-17T05:22:33Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_062948e020",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "guide_created",
+    "user_id": "user_0a52d804",
+    "timestamp": "2026-07-17T06:26:50Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_1929c5442c",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_viewed",
+    "user_id": "user_7429a56d",
+    "timestamp": "2026-07-17T07:13:40Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_bcc3ff451c",
+    "workspace_id": "ws_99d45316",
+    "company_name": "Emberton Foods",
+    "event_type": "guide_viewed",
+    "user_id": "user_72736258",
+    "timestamp": "2026-07-17T22:16:05Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_4080cdb499",
+    "workspace_id": "ws_ac633121",
+    "company_name": "Lighthouse Ventures",
+    "event_type": "login",
+    "user_id": "user_689bc0ec",
+    "timestamp": "2026-07-17T22:28:00Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_bc690d2e9a",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_viewed",
+    "user_id": "user_2503e42f",
+    "timestamp": "2026-07-18T02:00:18Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_c7d8543b5b",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_shared",
+    "user_id": "user_d9ab0b9a",
+    "timestamp": "2026-07-18T02:29:07Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_befbee67ad",
+    "workspace_id": "ws_823ac462",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_viewed",
+    "user_id": "user_f14f9cb4",
+    "timestamp": "2026-07-18T03:06:00Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_d087211ef8",
+    "workspace_id": "ws_ac633121",
+    "company_name": "Lighthouse Ventures",
+    "event_type": "guide_viewed",
+    "user_id": "user_689bc0ec",
+    "timestamp": "2026-07-18T04:18:48Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_d1c642bcd4",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "guide_shared",
+    "user_id": "user_620c117b",
+    "timestamp": "2026-07-18T08:00:12Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_2d5ebd3c2c",
+    "workspace_id": "ws_bedc7c0d",
+    "company_name": "Fernhill Energy",
+    "event_type": "guide_created",
+    "user_id": "user_fa9d8a0c",
+    "timestamp": "2026-07-18T08:39:26Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_675b7bf23f",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "guide_shared",
+    "user_id": "user_1d4f9a27",
+    "timestamp": "2026-07-18T08:54:27Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_4729453993",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "login",
+    "user_id": "user_d3b08a3f",
+    "timestamp": "2026-07-18T19:15:32Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_06dac3dda8",
+    "workspace_id": "ws_51c7948b",
+    "company_name": "Harborview Health",
+    "event_type": "login",
+    "user_id": "user_0be5e85c",
+    "timestamp": "2026-07-19T03:23:24Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_664e02f04a",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "guide_created",
+    "user_id": "user_35baeeaa",
+    "timestamp": "2026-07-19T06:32:52Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_b96448f3ae",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_viewed",
+    "user_id": "user_a48d3a0b",
+    "timestamp": "2026-07-19T07:48:08Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_f3595fc275",
+    "workspace_id": "ws_d3568e5c",
+    "company_name": "Cedarline Insurance",
+    "event_type": "login",
+    "user_id": "user_f3d57a3f",
+    "timestamp": "2026-07-19T23:18:54Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_fcb0fbac4c",
+    "workspace_id": "ws_ac633121",
+    "company_name": "Lighthouse Ventures",
+    "event_type": "guide_viewed",
+    "user_id": "user_56471f6d",
+    "timestamp": "2026-07-20T07:26:04Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_da78ca1220",
+    "workspace_id": "ws_58c4f123",
+    "company_name": "Marlowe & Reed",
+    "event_type": "guide_viewed",
+    "user_id": "user_8d457f42",
+    "timestamp": "2026-07-20T22:27:33Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_77efe819ba",
+    "workspace_id": "ws_ce562f5d",
+    "company_name": "Cobalt Financial",
+    "event_type": "login",
+    "user_id": "user_6b03b57c",
+    "timestamp": "2026-07-20T23:56:56Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_d59c391bf3",
+    "workspace_id": "ws_bedc7c0d",
+    "company_name": "Fernhill Energy",
+    "event_type": "guide_shared",
+    "user_id": "user_d4416efe",
+    "timestamp": "2026-07-21T01:19:53Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_e48c3bbce0",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "login",
+    "user_id": "user_250a0336",
+    "timestamp": "2026-07-21T01:27:47Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_8095134a60",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "guide_created",
+    "user_id": "user_e33cffad",
+    "timestamp": "2026-07-21T03:17:38Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_5e97825cef",
+    "workspace_id": "ws_51c7948b",
+    "company_name": "Harborview Health",
+    "event_type": "login",
+    "user_id": "user_cb22a1e8",
+    "timestamp": "2026-07-21T03:34:54Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_f6fb86ed28",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "guide_viewed",
+    "user_id": "user_20a0bd02",
+    "timestamp": "2026-07-21T21:27:11Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_1d9d554dd5",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_viewed",
+    "user_id": "user_817b2c09",
+    "timestamp": "2026-07-21T22:18:11Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_16c494282b",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "user_invited",
+    "user_id": "user_6afb3298",
+    "timestamp": "2026-07-21T22:24:43Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_d79edca4d1",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_viewed",
+    "user_id": "user_7608e546",
+    "timestamp": "2026-07-22T05:52:11Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_83fa3f23cc",
+    "workspace_id": "ws_823ac462",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_created",
+    "user_id": "user_1d518e75",
+    "timestamp": "2026-07-22T19:18:15Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_ad887ca604",
+    "workspace_id": "ws_72b2b083",
+    "company_name": "Thistle & Vine Events",
+    "event_type": "guide_viewed",
+    "user_id": "user_8d01a0b7",
+    "timestamp": "2026-07-22T22:36:30Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_54b937adfe",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "login",
+    "user_id": "user_1585d45c",
+    "timestamp": "2026-07-22T23:08:13Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_134f033297",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "guide_viewed",
+    "user_id": "user_559b6af6",
+    "timestamp": "2026-07-23T05:43:41Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_cd62043f73",
+    "workspace_id": "ws_ce562f5d",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_viewed",
+    "user_id": "user_33452125",
+    "timestamp": "2026-07-23T08:26:33Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_af35179544",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "guide_viewed",
+    "user_id": "user_64f92ccd",
+    "timestamp": "2026-07-23T20:43:28Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_e6cf99eaa5",
+    "workspace_id": "ws_823ac462",
+    "company_name": "Alderman Freight",
+    "event_type": "login",
+    "user_id": "user_c95db841",
+    "timestamp": "2026-07-23T20:57:26Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_3a044de6e9",
+    "workspace_id": "ws_d3568e5c",
+    "company_name": "Cedarline Insurance",
+    "event_type": "login",
+    "user_id": "user_b8ddece8",
+    "timestamp": "2026-07-23T22:12:28Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_8ff6fe8356",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "guide_created",
+    "user_id": "user_d868ca4c",
+    "timestamp": "2026-07-23T22:21:17Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_9cad6a90ae",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "login",
+    "user_id": "user_d3b08a3f",
+    "timestamp": "2026-07-24T01:48:56Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_3fef7f55fb",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "guide_viewed",
+    "user_id": "user_ac5455bf",
+    "timestamp": "2026-07-24T04:30:02Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_3890d70d63",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "guide_viewed",
+    "user_id": "user_fdedd6a7",
+    "timestamp": "2026-07-24T05:53:42Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_ec2b4b7487",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_viewed",
+    "user_id": "user_251b2d4d",
+    "timestamp": "2026-07-24T08:30:30Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_6a8848dcaf",
+    "workspace_id": "ws_ce562f5d",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_created",
+    "user_id": "user_3b2f3794",
+    "timestamp": "2026-07-24T23:33:46Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_105bafb727",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_created",
+    "user_id": "user_7e3d16cb",
+    "timestamp": "2026-07-25T00:39:20Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_dfcec305fb",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "login",
+    "user_id": "user_9053f3a0",
+    "timestamp": "2026-07-25T04:24:14Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_8e3a6002a8",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "guide_shared",
+    "user_id": "user_35baeeaa",
+    "timestamp": "2026-07-25T06:36:06Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_9861c6d2ce",
+    "workspace_id": "ws_12251f4b",
+    "company_name": "Silvercreek Biotech",
+    "event_type": "user_invited",
+    "user_id": "user_bd40f41d",
+    "timestamp": "2026-07-25T07:12:04Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_561459b895",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "guide_shared",
+    "user_id": "user_559b6af6",
+    "timestamp": "2026-07-25T20:49:57Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_7606a9c7c5",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_viewed",
+    "user_id": "user_62f00d43",
+    "timestamp": "2026-07-26T00:51:31Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_2eae606425",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_created",
+    "user_id": "user_df2f4fc5",
+    "timestamp": "2026-07-26T01:29:26Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_b9d4583dab",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "guide_viewed",
+    "user_id": "user_64dc679d",
+    "timestamp": "2026-07-26T07:15:17Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_073c9cb0e1",
+    "workspace_id": "ws_12251f4b",
+    "company_name": "Silvercreek Biotech",
+    "event_type": "login",
+    "user_id": "user_bd40f41d",
+    "timestamp": "2026-07-27T02:55:36Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_f2fa722fba",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_viewed",
+    "user_id": "user_bdb9305f",
+    "timestamp": "2026-07-27T03:12:21Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_10e1147ef3",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "guide_shared",
+    "user_id": "user_1518000a",
+    "timestamp": "2026-07-28T05:17:37Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_92538f692e",
+    "workspace_id": "ws_00f2801a",
+    "company_name": "Alderman Freight",
+    "event_type": "login",
+    "user_id": "user_0de8d56e",
+    "timestamp": "2026-07-28T07:56:52Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_ba48e041e1",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_created",
+    "user_id": "user_5640411b",
+    "timestamp": "2026-07-28T22:45:51Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_ec940fbcb2",
+    "workspace_id": "ws_ac633121",
+    "company_name": "Lighthouse Ventures",
+    "event_type": "guide_viewed",
+    "user_id": "user_68c72efb",
+    "timestamp": "2026-07-28T22:51:58Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_a819409cd5",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "login",
+    "user_id": "user_7b5ca045",
+    "timestamp": "2026-07-29T02:39:10Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_8b6e80f3c7",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "login",
+    "user_id": "user_339e0279",
+    "timestamp": "2026-07-29T04:44:56Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_6747703bb2",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "login",
+    "user_id": "user_62f00d43",
+    "timestamp": "2026-07-29T07:05:20Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_1f6467c7db",
+    "workspace_id": "ws_dae7cd82",
+    "company_name": "Northfield Bank",
+    "event_type": "guide_created",
+    "user_id": "user_c52af02f",
+    "timestamp": "2026-07-29T07:11:00Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_1a2873c762",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "guide_shared",
+    "user_id": "user_b5c6ee6c",
+    "timestamp": "2026-07-29T08:26:51Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_4e0b88dff0",
+    "workspace_id": "ws_12251f4b",
+    "company_name": "Silvercreek Biotech",
+    "event_type": "guide_viewed",
+    "user_id": "user_b3ea2bde",
+    "timestamp": "2026-07-29T20:46:03Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_a2265eb561",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_created",
+    "user_id": "user_216f09f4",
+    "timestamp": "2026-07-29T23:47:57Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_d50675a31b",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "guide_viewed",
+    "user_id": "user_c78dc60f",
+    "timestamp": "2026-07-30T00:12:04Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_303ced8514",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_viewed",
+    "user_id": "user_7e3d16cb",
+    "timestamp": "2026-07-30T00:25:45Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_9dc2f4cd0e",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_shared",
+    "user_id": "user_1585d45c",
+    "timestamp": "2026-07-30T02:33:41Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_98ea97d772",
+    "workspace_id": "ws_d3568e5c",
+    "company_name": "Cedarline Insurance",
+    "event_type": "login",
+    "user_id": "user_0553b673",
+    "timestamp": "2026-07-30T07:53:59Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_8ac6975d40",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "login",
+    "user_id": "user_339e0279",
+    "timestamp": "2026-07-30T22:17:48Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_da907aea3b",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "guide_created",
+    "user_id": "user_0bb97af3",
+    "timestamp": "2026-07-30T23:24:46Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_8e8225b7ae",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "login",
+    "user_id": "user_d89e4f5d",
+    "timestamp": "2026-07-31T03:05:45Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_18d4c85efa",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_created",
+    "user_id": "user_8e331f0b",
+    "timestamp": "2026-07-31T08:17:25Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_43e9f5956e",
+    "workspace_id": "ws_9a4a399b",
+    "company_name": "Redwood Studios",
+    "event_type": "login",
+    "user_id": "user_9da37d29",
+    "timestamp": "2026-07-31T08:40:11Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_94cd759827",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "guide_viewed",
+    "user_id": "user_523a468c",
+    "timestamp": "2026-07-31T19:41:23Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_3e9fabb6ed",
+    "workspace_id": "ws_dae7cd82",
+    "company_name": "Northfield Bank",
+    "event_type": "user_invited",
+    "user_id": "user_43a6be64",
+    "timestamp": "2026-07-31T20:15:34Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_98063c2329",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "guide_created",
+    "user_id": "user_80ecbc30",
+    "timestamp": "2026-07-31T21:20:48Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_19cca9dd87",
+    "workspace_id": "ws_9cbc74f2",
+    "company_name": "Brightside Logistics",
+    "event_type": "login",
+    "user_id": "user_fb8985c7",
+    "timestamp": "2026-08-01T22:13:57Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_4ca7564bb4",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "guide_shared",
+    "user_id": "user_5c0a0bf9",
+    "timestamp": "2026-08-02T07:29:37Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_ace9ee1d3a",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "guide_viewed",
+    "user_id": "user_4b0491d9",
+    "timestamp": "2026-08-03T03:28:49Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_0624f8e9d0",
+    "workspace_id": "ws_03ba7f29",
+    "company_name": "Tidewater Retail",
+    "event_type": "login",
+    "user_id": "user_220f59b8",
+    "timestamp": "2026-08-03T04:03:45Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_8872e62ad9",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "guide_viewed",
+    "user_id": "user_55aa47ae",
+    "timestamp": "2026-08-03T05:22:17Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_23a44a93d2",
+    "workspace_id": "ws_dae7cd82",
+    "company_name": "Northfield Bank",
+    "event_type": "guide_viewed",
+    "user_id": "user_23d2db5b",
+    "timestamp": "2026-08-03T07:40:26Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_350f1a496e",
+    "workspace_id": "ws_99d45316",
+    "company_name": "Emberton Foods",
+    "event_type": "guide_shared",
+    "user_id": "user_4282cb1f",
+    "timestamp": "2026-08-03T08:22:54Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_30c4932712",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "login",
+    "user_id": "user_7b5ca045",
+    "timestamp": "2026-08-03T21:36:35Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_1959d352cb",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "guide_shared",
+    "user_id": "user_0bb97af3",
+    "timestamp": "2026-08-03T23:14:21Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_a35a6f4e22",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "login",
+    "user_id": "user_2d06e9d5",
+    "timestamp": "2026-08-04T01:27:22Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_b35eefd78b",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_viewed",
+    "user_id": "user_8f0c5aeb",
+    "timestamp": "2026-08-04T02:12:20Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_4ed475322f",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "user_invited",
+    "user_id": "user_95961e15",
+    "timestamp": "2026-08-04T02:50:36Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_4b0f980c10",
+    "workspace_id": "ws_72b2b083",
+    "company_name": "Thistle & Vine Events",
+    "event_type": "guide_shared",
+    "user_id": "user_03be8d60",
+    "timestamp": "2026-08-04T03:59:51Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_ddc2860150",
+    "workspace_id": "ws_d3568e5c",
+    "company_name": "Cedarline Insurance",
+    "event_type": "login",
+    "user_id": "user_0e02fa35",
+    "timestamp": "2026-08-04T04:42:20Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_4e7bfaa296",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_shared",
+    "user_id": "user_817b2c09",
+    "timestamp": "2026-08-04T06:28:08Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_785b778e53",
+    "workspace_id": "ws_d3568e5c",
+    "company_name": "Cedarline Insurance",
+    "event_type": "login",
+    "user_id": "user_5ee802aa",
+    "timestamp": "2026-08-04T20:51:47Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_d662dec882",
+    "workspace_id": "ws_03ba7f29",
+    "company_name": "Tidewater Retail",
+    "event_type": "guide_viewed",
+    "user_id": "user_c760dddd",
+    "timestamp": "2026-08-04T23:31:05Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_77eed6f03e",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_shared",
+    "user_id": "user_90843ed4",
+    "timestamp": "2026-08-04T23:49:07Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_fa4c0dc42a",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_shared",
+    "user_id": "user_7e3d16cb",
+    "timestamp": "2026-08-05T00:37:53Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_2088023b46",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "user_invited",
+    "user_id": "user_7b5ca045",
+    "timestamp": "2026-08-05T02:51:51Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_644b5520d0",
+    "workspace_id": "ws_ce562f5d",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_viewed",
+    "user_id": "user_a102089b",
+    "timestamp": "2026-08-05T03:25:59Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_f26551c1d3",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "user_invited",
+    "user_id": "user_d2a34fb6",
+    "timestamp": "2026-08-05T04:09:45Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_c1cf60ba82",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "login",
+    "user_id": "user_7b5ca045",
+    "timestamp": "2026-08-05T06:40:00Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_8fb4df9c17",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "guide_created",
+    "user_id": "user_64dc679d",
+    "timestamp": "2026-08-05T07:46:11Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_5e828c43f6",
+    "workspace_id": "ws_d3568e5c",
+    "company_name": "Cedarline Insurance",
+    "event_type": "login",
+    "user_id": "user_0e02fa35",
+    "timestamp": "2026-08-05T23:04:56Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_370b91993b",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_shared",
+    "user_id": "user_df2f4fc5",
+    "timestamp": "2026-08-06T00:33:17Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_7b047f9993",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_viewed",
+    "user_id": "user_601ebbe1",
+    "timestamp": "2026-08-06T00:56:48Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_f751ce2f85",
+    "workspace_id": "ws_ce562f5d",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_viewed",
+    "user_id": "user_33452125",
+    "timestamp": "2026-08-06T01:01:07Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_df2498f92a",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_created",
+    "user_id": "user_7608e546",
+    "timestamp": "2026-08-06T02:43:21Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_353557ee8d",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_viewed",
+    "user_id": "user_9053f3a0",
+    "timestamp": "2026-08-06T03:57:41Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_e62bc9d613",
+    "workspace_id": "ws_bedc7c0d",
+    "company_name": "Fernhill Energy",
+    "event_type": "guide_shared",
+    "user_id": "user_fa9d8a0c",
+    "timestamp": "2026-08-06T06:45:44Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_9196a5d4b1",
+    "workspace_id": "ws_bedc7c0d",
+    "company_name": "Fernhill Energy",
+    "event_type": "guide_created",
+    "user_id": "user_55d291f0",
+    "timestamp": "2026-08-06T23:04:23Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_2388043d3d",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "login",
+    "user_id": "user_bdb9305f",
+    "timestamp": "2026-08-07T00:11:40Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_7599c58409",
+    "workspace_id": "ws_99d45316",
+    "company_name": "Emberton Foods",
+    "event_type": "guide_viewed",
+    "user_id": "user_04d946fc",
+    "timestamp": "2026-08-07T02:12:35Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_aef1dc68d4",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_shared",
+    "user_id": "user_d9ab0b9a",
+    "timestamp": "2026-08-07T05:37:11Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_58b7e40a4b",
+    "workspace_id": "ws_99d45316",
+    "company_name": "Emberton Foods",
+    "event_type": "guide_created",
+    "user_id": "user_4282cb1f",
+    "timestamp": "2026-08-07T05:49:47Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_905510c6a7",
+    "workspace_id": "ws_dae7cd82",
+    "company_name": "Northfield Bank",
+    "event_type": "guide_created",
+    "user_id": "user_d2f582bc",
+    "timestamp": "2026-08-07T22:29:06Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_1427f433ae",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "guide_shared",
+    "user_id": "user_c78dc60f",
+    "timestamp": "2026-08-07T22:53:59Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_46f5ffc4b5",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "user_invited",
+    "user_id": "user_80ecbc30",
+    "timestamp": "2026-08-07T23:30:31Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_e1a91c34aa",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "login",
+    "user_id": "user_6afb3298",
+    "timestamp": "2026-08-08T00:41:41Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_0a815fa42c",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_created",
+    "user_id": "user_d9ab0b9a",
+    "timestamp": "2026-08-08T01:47:58Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_01803333f1",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "guide_shared",
+    "user_id": "user_64f92ccd",
+    "timestamp": "2026-08-08T02:29:19Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_f28e1ec7ed",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_shared",
+    "user_id": "user_f6609c0a",
+    "timestamp": "2026-08-08T05:50:04Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_8b9b0af054",
+    "workspace_id": "ws_9cbc74f2",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_viewed",
+    "user_id": "user_5a167b00",
+    "timestamp": "2026-08-08T19:18:26Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_3234f85c8f",
+    "workspace_id": "ws_51c7948b",
+    "company_name": "Harborview Health",
+    "event_type": "guide_viewed",
+    "user_id": "user_cea0517c",
+    "timestamp": "2026-08-09T00:56:59Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_e8b47049b1",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "guide_viewed",
+    "user_id": "user_8a5bfcbb",
+    "timestamp": "2026-08-09T06:13:11Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_1f6d369b6f",
+    "workspace_id": "ws_99d45316",
+    "company_name": "Emberton Foods",
+    "event_type": "guide_created",
+    "user_id": "user_b8ba0839",
+    "timestamp": "2026-08-09T08:25:30Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_fbd74886e7",
+    "workspace_id": "ws_823ac462",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_viewed",
+    "user_id": "user_f14f9cb4",
+    "timestamp": "2026-08-10T00:38:23Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_7817c2d705",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_viewed",
+    "user_id": "user_2ac2229c",
+    "timestamp": "2026-08-10T20:20:31Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_d483d7f93d",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "guide_shared",
+    "user_id": "user_18f32a77",
+    "timestamp": "2026-08-10T21:03:13Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_1ab1c816bb",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "guide_viewed",
+    "user_id": "user_c9fe2e2c",
+    "timestamp": "2026-08-10T21:43:46Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_9bb2062791",
+    "workspace_id": "ws_4fdf6095",
+    "company_name": "Pinnacle Manufacturing",
+    "event_type": "guide_viewed",
+    "user_id": "user_6166dfa9",
+    "timestamp": "2026-08-11T00:46:08Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_da3216813f",
+    "workspace_id": "ws_51c7948b",
+    "company_name": "Harborview Health",
+    "event_type": "login",
+    "user_id": "user_0be5e85c",
+    "timestamp": "2026-08-11T02:26:54Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_8a43ff88fc",
+    "workspace_id": "ws_9cbc74f2",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_viewed",
+    "user_id": "user_63fd836b",
+    "timestamp": "2026-08-11T07:55:21Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_b9b2d832c8",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_viewed",
+    "user_id": "user_7429a56d",
+    "timestamp": "2026-08-12T02:45:58Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_36b9398d7e",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "guide_viewed",
+    "user_id": "user_e33cffad",
+    "timestamp": "2026-08-12T07:00:16Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_16c457fc6c",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "guide_shared",
+    "user_id": "user_0a52d804",
+    "timestamp": "2026-08-12T07:24:38Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_804d7e6fae",
+    "workspace_id": "ws_9cbc74f2",
+    "company_name": "Brightside Logistics",
+    "event_type": "user_invited",
+    "user_id": "user_fb8985c7",
+    "timestamp": "2026-08-12T08:52:55Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_e63edf09c1",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_created",
+    "user_id": "user_9053f3a0",
+    "timestamp": "2026-08-12T20:05:53Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_e0eaaa5758",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "user_invited",
+    "user_id": "user_c78dc60f",
+    "timestamp": "2026-08-12T20:16:02Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_3ab83752f2",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "guide_viewed",
+    "user_id": "user_052a3c77",
+    "timestamp": "2026-08-12T22:11:53Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_540be8b164",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "guide_created",
+    "user_id": "user_64f92ccd",
+    "timestamp": "2026-08-13T06:41:15Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_07362c3107",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "guide_shared",
+    "user_id": "user_7b5ca045",
+    "timestamp": "2026-08-13T19:18:18Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_eea88be4a7",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "guide_created",
+    "user_id": "user_64dc679d",
+    "timestamp": "2026-08-13T22:19:35Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_b47ded2362",
+    "workspace_id": "ws_00f2801a",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_viewed",
+    "user_id": "user_d7121bcf",
+    "timestamp": "2026-08-13T23:49:44Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_33f2462ade",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "guide_created",
+    "user_id": "user_64f92ccd",
+    "timestamp": "2026-08-14T03:46:36Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_e94b0d2d7f",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "guide_viewed",
+    "user_id": "user_18f32a77",
+    "timestamp": "2026-08-14T04:06:12Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_1f87c8c03f",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_created",
+    "user_id": "user_d456e9b0",
+    "timestamp": "2026-08-14T04:19:22Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_6c99e565ea",
+    "workspace_id": "ws_d3568e5c",
+    "company_name": "Cedarline Insurance",
+    "event_type": "login",
+    "user_id": "user_b8ddece8",
+    "timestamp": "2026-08-14T07:44:54Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_094bceb6a4",
+    "workspace_id": "ws_72b2b083",
+    "company_name": "Thistle & Vine Events",
+    "event_type": "guide_viewed",
+    "user_id": "user_c909d7d0",
+    "timestamp": "2026-08-14T08:58:21Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_002dbf3045",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_shared",
+    "user_id": "user_7429a56d",
+    "timestamp": "2026-08-14T21:10:48Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_b3e2863095",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "user_invited",
+    "user_id": "user_7608e546",
+    "timestamp": "2026-08-14T23:46:26Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_b1fd20cd8e",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "user_invited",
+    "user_id": "user_601ebbe1",
+    "timestamp": "2026-08-15T02:13:20Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_3f8f02fc18",
+    "workspace_id": "ws_ac633121",
+    "company_name": "Lighthouse Ventures",
+    "event_type": "guide_viewed",
+    "user_id": "user_88101da8",
+    "timestamp": "2026-08-15T03:23:58Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_206eb51e81",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "guide_created",
+    "user_id": "user_2d06e9d5",
+    "timestamp": "2026-08-15T04:51:22Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_0fda178d75",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_viewed",
+    "user_id": "user_59d11e59",
+    "timestamp": "2026-08-15T06:42:41Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_e52f96170c",
+    "workspace_id": "ws_00f2801a",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_viewed",
+    "user_id": "user_d7121bcf",
+    "timestamp": "2026-08-15T08:23:34Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_3862ce5dbf",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "guide_shared",
+    "user_id": "user_052a3c77",
+    "timestamp": "2026-08-16T07:57:35Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_a127ad9ab5",
+    "workspace_id": "ws_9cbc74f2",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_shared",
+    "user_id": "user_fb8985c7",
+    "timestamp": "2026-08-16T22:32:47Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_c0c4fba9d9",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "login",
+    "user_id": "user_df2f4fc5",
+    "timestamp": "2026-08-16T23:04:19Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_9db6a8c9f0",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "guide_created",
+    "user_id": "user_6afb3298",
+    "timestamp": "2026-08-17T06:48:51Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_cca4551946",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "guide_shared",
+    "user_id": "user_c78dc60f",
+    "timestamp": "2026-08-17T19:33:20Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_c963b6e665",
+    "workspace_id": "ws_99d45316",
+    "company_name": "Emberton Foods",
+    "event_type": "guide_created",
+    "user_id": "user_9d50f4d4",
+    "timestamp": "2026-08-18T01:15:29Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_8cbe6c1393",
+    "workspace_id": "ws_ce562f5d",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_created",
+    "user_id": "user_3b2f3794",
+    "timestamp": "2026-08-18T02:17:23Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_33ad969903",
+    "workspace_id": "ws_12251f4b",
+    "company_name": "Silvercreek Biotech",
+    "event_type": "user_invited",
+    "user_id": "user_6463b02d",
+    "timestamp": "2026-08-18T02:19:38Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_3ca957e313",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "user_invited",
+    "user_id": "user_d868ca4c",
+    "timestamp": "2026-08-18T04:09:50Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_4402efdc36",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "guide_viewed",
+    "user_id": "user_6ba86986",
+    "timestamp": "2026-08-18T07:44:45Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_dea9459440",
+    "workspace_id": "ws_12251f4b",
+    "company_name": "Silvercreek Biotech",
+    "event_type": "guide_shared",
+    "user_id": "user_cb85db50",
+    "timestamp": "2026-08-18T07:50:43Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_7b1018eef4",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "guide_viewed",
+    "user_id": "user_c9fe2e2c",
+    "timestamp": "2026-08-18T08:30:10Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_299e9d33b8",
+    "workspace_id": "ws_99d45316",
+    "company_name": "Emberton Foods",
+    "event_type": "user_invited",
+    "user_id": "user_5c753b0b",
+    "timestamp": "2026-08-19T02:49:14Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_ab8ceaa2de",
+    "workspace_id": "ws_00f2801a",
+    "company_name": "Alderman Freight",
+    "event_type": "user_invited",
+    "user_id": "user_3df5cce4",
+    "timestamp": "2026-08-19T04:15:41Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_b10e3eee88",
+    "workspace_id": "ws_823ac462",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_shared",
+    "user_id": "user_f14f9cb4",
+    "timestamp": "2026-08-19T06:23:07Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_0d295b3d6b",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_viewed",
+    "user_id": "user_8f0c5aeb",
+    "timestamp": "2026-08-19T08:15:12Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_2515b49009",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_viewed",
+    "user_id": "user_bdb9305f",
+    "timestamp": "2026-08-19T20:24:07Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_5fafa35487",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "login",
+    "user_id": "user_c9fe2e2c",
+    "timestamp": "2026-08-19T22:51:30Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_9d863f2810",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "user_invited",
+    "user_id": "user_e33cffad",
+    "timestamp": "2026-08-20T00:29:33Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_09de7d0d0f",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "login",
+    "user_id": "user_5640411b",
+    "timestamp": "2026-08-20T00:45:45Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_ccd4cc8c53",
+    "workspace_id": "ws_9cbc74f2",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_viewed",
+    "user_id": "user_fc5bbb63",
+    "timestamp": "2026-08-20T01:00:45Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_b1c8c3e3cb",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "guide_viewed",
+    "user_id": "user_c8438926",
+    "timestamp": "2026-08-20T04:20:13Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_4f4b19fe49",
+    "workspace_id": "ws_72b2b083",
+    "company_name": "Thistle & Vine Events",
+    "event_type": "guide_viewed",
+    "user_id": "user_8d01a0b7",
+    "timestamp": "2026-08-20T19:05:19Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_f46121500e",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "login",
+    "user_id": "user_e79060c3",
+    "timestamp": "2026-08-20T19:29:55Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_15b1d4ed21",
+    "workspace_id": "ws_823ac462",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_viewed",
+    "user_id": "user_c95db841",
+    "timestamp": "2026-08-20T20:04:44Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_e9ed15b63a",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "guide_viewed",
+    "user_id": "user_fcefa37b",
+    "timestamp": "2026-08-20T20:07:16Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_eb89ee6b0b",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_created",
+    "user_id": "user_3e59b9c7",
+    "timestamp": "2026-08-20T22:13:56Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_118308a26c",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "guide_shared",
+    "user_id": "user_80f70953",
+    "timestamp": "2026-08-21T07:51:44Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_5ab5af2beb",
+    "workspace_id": "ws_bedc7c0d",
+    "company_name": "Fernhill Energy",
+    "event_type": "guide_created",
+    "user_id": "user_55d291f0",
+    "timestamp": "2026-08-21T19:13:48Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_24497e5bce",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_created",
+    "user_id": "user_64e37141",
+    "timestamp": "2026-08-21T20:29:45Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_70981b365b",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "login",
+    "user_id": "user_8fcc2427",
+    "timestamp": "2026-08-21T21:35:49Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_ec2a84e6e5",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "login",
+    "user_id": "user_2503e42f",
+    "timestamp": "2026-08-21T21:50:54Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_54f961e175",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "guide_created",
+    "user_id": "user_4e39f5b8",
+    "timestamp": "2026-08-21T23:21:06Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_7a93c0a5d3",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_shared",
+    "user_id": "user_da4a1a3f",
+    "timestamp": "2026-08-22T07:21:43Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_f7cc365bba",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "guide_created",
+    "user_id": "user_a9b1e236",
+    "timestamp": "2026-08-22T07:48:45Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_5b9046cc1c",
+    "workspace_id": "ws_72b2b083",
+    "company_name": "Thistle & Vine Events",
+    "event_type": "guide_created",
+    "user_id": "user_e4eaf7d8",
+    "timestamp": "2026-08-22T22:20:11Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_a02bcac593",
+    "workspace_id": "ws_ac633121",
+    "company_name": "Lighthouse Ventures",
+    "event_type": "guide_viewed",
+    "user_id": "user_689bc0ec",
+    "timestamp": "2026-08-22T22:42:12Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_c435bf0f4e",
+    "workspace_id": "ws_4fdf6095",
+    "company_name": "Pinnacle Manufacturing",
+    "event_type": "user_invited",
+    "user_id": "user_bbd28d58",
+    "timestamp": "2026-08-23T01:23:39Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_3c0e883105",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "user_invited",
+    "user_id": "user_1d4f9a27",
+    "timestamp": "2026-08-23T01:54:21Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_8c7df143e1",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_viewed",
+    "user_id": "user_dfc9d44a",
+    "timestamp": "2026-08-23T02:20:52Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_377c6600ea",
+    "workspace_id": "ws_12251f4b",
+    "company_name": "Silvercreek Biotech",
+    "event_type": "guide_shared",
+    "user_id": "user_6463b02d",
+    "timestamp": "2026-08-23T05:46:20Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_a3cce7a289",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "login",
+    "user_id": "user_d89e4f5d",
+    "timestamp": "2026-08-23T20:09:06Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_64ccb003ba",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "guide_viewed",
+    "user_id": "user_cef26651",
+    "timestamp": "2026-08-23T21:46:04Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_8fbb40143f",
+    "workspace_id": "ws_99d45316",
+    "company_name": "Emberton Foods",
+    "event_type": "guide_viewed",
+    "user_id": "user_b8ba0839",
+    "timestamp": "2026-08-23T23:08:34Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_c5318b2c61",
+    "workspace_id": "ws_00f2801a",
+    "company_name": "Alderman Freight",
+    "event_type": "login",
+    "user_id": "user_d1a3002c",
+    "timestamp": "2026-08-24T00:14:09Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_f03db8601f",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "login",
+    "user_id": "user_a9b1e236",
+    "timestamp": "2026-08-24T03:25:03Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_b76c8dd26e",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "guide_created",
+    "user_id": "user_64dc679d",
+    "timestamp": "2026-08-24T19:27:34Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_f3d5e2fad9",
+    "workspace_id": "ws_9cbc74f2",
+    "company_name": "Brightside Logistics",
+    "event_type": "login",
+    "user_id": "user_0a6ca1ab",
+    "timestamp": "2026-08-24T20:36:01Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_60be1fd0c8",
+    "workspace_id": "ws_99d45316",
+    "company_name": "Emberton Foods",
+    "event_type": "guide_created",
+    "user_id": "user_4282cb1f",
+    "timestamp": "2026-08-24T20:43:45Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_3a0216f473",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_viewed",
+    "user_id": "user_d9ab0b9a",
+    "timestamp": "2026-08-25T19:11:13Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_9f35e6af61",
+    "workspace_id": "ws_12251f4b",
+    "company_name": "Silvercreek Biotech",
+    "event_type": "user_invited",
+    "user_id": "user_bd40f41d",
+    "timestamp": "2026-08-25T22:03:52Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_173afb207b",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_viewed",
+    "user_id": "user_3b48dca8",
+    "timestamp": "2026-08-25T22:34:15Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_fa187941d0",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_created",
+    "user_id": "user_05fa3d95",
+    "timestamp": "2026-08-26T19:16:30Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_091305d88f",
+    "workspace_id": "ws_ac633121",
+    "company_name": "Lighthouse Ventures",
+    "event_type": "login",
+    "user_id": "user_68c72efb",
+    "timestamp": "2026-08-26T21:20:08Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_95703dab0d",
+    "workspace_id": "ws_ce562f5d",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_created",
+    "user_id": "user_33452125",
+    "timestamp": "2026-08-27T01:25:57Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_0690a60bf5",
+    "workspace_id": "ws_00f2801a",
+    "company_name": "Alderman Freight",
+    "event_type": "login",
+    "user_id": "user_0de8d56e",
+    "timestamp": "2026-08-27T02:27:11Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_98036ae1f1",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_viewed",
+    "user_id": "user_0e428a12",
+    "timestamp": "2026-08-27T02:31:41Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_c59ebfb0c1",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_viewed",
+    "user_id": "user_8f0c5aeb",
+    "timestamp": "2026-08-27T04:37:59Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_81bed911b9",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "user_invited",
+    "user_id": "user_d2a34fb6",
+    "timestamp": "2026-08-27T04:43:24Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_1a154fb9a3",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "guide_viewed",
+    "user_id": "user_5c0a0bf9",
+    "timestamp": "2026-08-27T22:25:00Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_0a232a79c3",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "user_invited",
+    "user_id": "user_90843ed4",
+    "timestamp": "2026-08-28T00:04:39Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_400851f4b3",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_created",
+    "user_id": "user_0e428a12",
+    "timestamp": "2026-08-28T02:34:26Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_435314b8df",
+    "workspace_id": "ws_58c4f123",
+    "company_name": "Marlowe & Reed",
+    "event_type": "user_invited",
+    "user_id": "user_8d457f42",
+    "timestamp": "2026-08-28T03:43:13Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_536ad0d893",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_viewed",
+    "user_id": "user_2503e42f",
+    "timestamp": "2026-08-28T05:33:20Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_557bf91747",
+    "workspace_id": "ws_823ac462",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_viewed",
+    "user_id": "user_f14f9cb4",
+    "timestamp": "2026-08-28T21:07:53Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_3611dfc467",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_viewed",
+    "user_id": "user_601ebbe1",
+    "timestamp": "2026-08-29T00:11:21Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_23f6789c2b",
+    "workspace_id": "ws_00f2801a",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_viewed",
+    "user_id": "user_d7121bcf",
+    "timestamp": "2026-08-29T02:11:26Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_3abedb1498",
+    "workspace_id": "ws_99d45316",
+    "company_name": "Emberton Foods",
+    "event_type": "guide_viewed",
+    "user_id": "user_b8ba0839",
+    "timestamp": "2026-08-29T03:01:06Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_1b195c0b59",
+    "workspace_id": "ws_823ac462",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_viewed",
+    "user_id": "user_c95db841",
+    "timestamp": "2026-08-29T05:10:24Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_4d6ac9d348",
+    "workspace_id": "ws_dae7cd82",
+    "company_name": "Northfield Bank",
+    "event_type": "login",
+    "user_id": "user_43a6be64",
+    "timestamp": "2026-08-29T19:20:19Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_7e1aecc9b3",
+    "workspace_id": "ws_823ac462",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_viewed",
+    "user_id": "user_c95db841",
+    "timestamp": "2026-08-29T22:42:18Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_21c8e6c6df",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_created",
+    "user_id": "user_7429a56d",
+    "timestamp": "2026-08-30T00:16:47Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_afc116b494",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "user_invited",
+    "user_id": "user_fcefa37b",
+    "timestamp": "2026-08-30T06:24:51Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_a93f96b1e7",
+    "workspace_id": "ws_ac633121",
+    "company_name": "Lighthouse Ventures",
+    "event_type": "user_invited",
+    "user_id": "user_768ad77f",
+    "timestamp": "2026-08-31T20:43:37Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_eee8ed31b5",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "guide_viewed",
+    "user_id": "user_04304c0d",
+    "timestamp": "2026-08-31T20:46:56Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_6c347c969e",
+    "workspace_id": "ws_72b2b083",
+    "company_name": "Thistle & Vine Events",
+    "event_type": "guide_viewed",
+    "user_id": "user_3936ac9d",
+    "timestamp": "2026-08-31T22:23:38Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_1d4805df55",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "login",
+    "user_id": "user_fcefa37b",
+    "timestamp": "2026-08-31T23:05:59Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_a04a06683a",
+    "workspace_id": "ws_823ac462",
+    "company_name": "Alderman Freight",
+    "event_type": "login",
+    "user_id": "user_1d518e75",
+    "timestamp": "2026-09-01T00:27:16Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_3572b8a99f",
+    "workspace_id": "ws_58c4f123",
+    "company_name": "Marlowe & Reed",
+    "event_type": "login",
+    "user_id": "user_444ee51c",
+    "timestamp": "2026-09-01T00:40:35Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_667b0878cf",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "login",
+    "user_id": "user_a9bb956a",
+    "timestamp": "2026-09-01T05:53:10Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_aacce9ef43",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "guide_viewed",
+    "user_id": "user_ae147203",
+    "timestamp": "2026-09-01T05:59:01Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_8cc68c5ebf",
+    "workspace_id": "ws_dae7cd82",
+    "company_name": "Northfield Bank",
+    "event_type": "login",
+    "user_id": "user_c52af02f",
+    "timestamp": "2026-09-01T08:11:24Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_a24b1e5c13",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "user_invited",
+    "user_id": "user_7d5cc36c",
+    "timestamp": "2026-09-01T21:25:43Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_f54b53b8ac",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "guide_created",
+    "user_id": "user_80ecbc30",
+    "timestamp": "2026-09-01T21:45:06Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_4f24311924",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "guide_viewed",
+    "user_id": "user_20a0bd02",
+    "timestamp": "2026-09-02T00:58:43Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_dbdff8353e",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "user_invited",
+    "user_id": "user_80ecbc30",
+    "timestamp": "2026-09-02T01:07:28Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_d60c216b90",
+    "workspace_id": "ws_823ac462",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_created",
+    "user_id": "user_c95db841",
+    "timestamp": "2026-09-02T02:41:39Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_de36c2d48d",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_created",
+    "user_id": "user_8f0c5aeb",
+    "timestamp": "2026-09-02T19:19:44Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_d1a709fce9",
+    "workspace_id": "ws_00f2801a",
+    "company_name": "Alderman Freight",
+    "event_type": "guide_viewed",
+    "user_id": "user_0de8d56e",
+    "timestamp": "2026-09-02T21:37:27Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_821848b1b3",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "guide_viewed",
+    "user_id": "user_559b6af6",
+    "timestamp": "2026-09-02T21:49:18Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_215c200672",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "guide_viewed",
+    "user_id": "user_523a468c",
+    "timestamp": "2026-09-02T22:05:26Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_7589258c89",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_shared",
+    "user_id": "user_da42a787",
+    "timestamp": "2026-09-02T22:47:40Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_0aa8553681",
+    "workspace_id": "ws_99d45316",
+    "company_name": "Emberton Foods",
+    "event_type": "login",
+    "user_id": "user_9566b428",
+    "timestamp": "2026-09-02T22:50:28Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_d8dc1737d7",
+    "workspace_id": "ws_df3efb56",
+    "company_name": "Birchwood Dental Group",
+    "event_type": "guide_viewed",
+    "user_id": "user_aeec856a",
+    "timestamp": "2026-09-03T01:51:05Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_83e6067728",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "guide_viewed",
+    "user_id": "user_7b5ca045",
+    "timestamp": "2026-09-03T04:27:38Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_6e7c822c93",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "login",
+    "user_id": "user_8f0c5aeb",
+    "timestamp": "2026-09-03T04:39:38Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_4da91afa57",
+    "workspace_id": "ws_ac633121",
+    "company_name": "Lighthouse Ventures",
+    "event_type": "login",
+    "user_id": "user_6450fe90",
+    "timestamp": "2026-09-03T05:24:43Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_c6c0a29db4",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_viewed",
+    "user_id": "user_9053f3a0",
+    "timestamp": "2026-09-03T07:05:46Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_5c9d02010a",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "login",
+    "user_id": "user_ae147203",
+    "timestamp": "2026-09-03T08:53:52Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_95be2cecdb",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_viewed",
+    "user_id": "user_7e3d16cb",
+    "timestamp": "2026-09-03T20:22:55Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_3267284f64",
+    "workspace_id": "ws_ac633121",
+    "company_name": "Lighthouse Ventures",
+    "event_type": "login",
+    "user_id": "user_689bc0ec",
+    "timestamp": "2026-09-04T00:31:50Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_8b1b266ce6",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_shared",
+    "user_id": "user_0e428a12",
+    "timestamp": "2026-09-04T01:46:17Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_0bda932c09",
+    "workspace_id": "ws_9cbc74f2",
+    "company_name": "Brightside Logistics",
+    "event_type": "user_invited",
+    "user_id": "user_5a167b00",
+    "timestamp": "2026-09-04T04:14:33Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_b4ab4091b2",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "guide_viewed",
+    "user_id": "user_35baeeaa",
+    "timestamp": "2026-09-04T06:42:34Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_583731fa29",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_shared",
+    "user_id": "user_e79060c3",
+    "timestamp": "2026-09-04T07:18:42Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_a05e453b2a",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "login",
+    "user_id": "user_601ebbe1",
+    "timestamp": "2026-09-04T08:49:46Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_7a2c2eb9f4",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "user_invited",
+    "user_id": "user_2ac2229c",
+    "timestamp": "2026-09-04T19:23:12Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_8146aa1ddf",
+    "workspace_id": "ws_dae7cd82",
+    "company_name": "Northfield Bank",
+    "event_type": "guide_shared",
+    "user_id": "user_d989b2c7",
+    "timestamp": "2026-09-04T23:46:02Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_383793f098",
+    "workspace_id": "ws_bedc7c0d",
+    "company_name": "Fernhill Energy",
+    "event_type": "login",
+    "user_id": "user_02ccd2cb",
+    "timestamp": "2026-09-05T00:25:42Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_e80bd21b71",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "user_invited",
+    "user_id": "user_f6609c0a",
+    "timestamp": "2026-09-05T00:48:12Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_aea5c8f3e3",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "login",
+    "user_id": "user_b19b4a85",
+    "timestamp": "2026-09-05T05:17:15Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_e1da38dbc2",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "login",
+    "user_id": "user_2266bdb2",
+    "timestamp": "2026-09-05T23:19:53Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_a3e25e6bc1",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "guide_viewed",
+    "user_id": "user_7925764a",
+    "timestamp": "2026-09-06T23:59:25Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_924aa421b0",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_created",
+    "user_id": "user_216f09f4",
+    "timestamp": "2026-09-07T01:29:06Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_016bbf644b",
+    "workspace_id": "ws_72b2b083",
+    "company_name": "Thistle & Vine Events",
+    "event_type": "login",
+    "user_id": "user_7780509d",
+    "timestamp": "2026-09-07T02:13:04Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_938106a26c",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_shared",
+    "user_id": "user_250a0336",
+    "timestamp": "2026-09-07T05:07:11Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_cfb6e011ff",
+    "workspace_id": "ws_12251f4b",
+    "company_name": "Silvercreek Biotech",
+    "event_type": "guide_created",
+    "user_id": "user_4ca72f30",
+    "timestamp": "2026-09-07T05:22:26Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_07fbe9a0da",
+    "workspace_id": "ws_bedc7c0d",
+    "company_name": "Fernhill Energy",
+    "event_type": "guide_shared",
+    "user_id": "user_fa9d8a0c",
+    "timestamp": "2026-09-07T06:38:00Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_1b752c7013",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "user_invited",
+    "user_id": "user_251b2d4d",
+    "timestamp": "2026-09-07T08:10:45Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_457600868d",
+    "workspace_id": "ws_ce7bbe15",
+    "company_name": "Osprey Aerospace",
+    "event_type": "guide_shared",
+    "user_id": "user_0954b296",
+    "timestamp": "2026-09-07T20:18:46Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_651f62f350",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "guide_shared",
+    "user_id": "user_7d5cc36c",
+    "timestamp": "2026-09-07T21:19:41Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_f153d7df00",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "user_invited",
+    "user_id": "user_d89e4f5d",
+    "timestamp": "2026-09-08T02:13:46Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_7a640c8cc5",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_created",
+    "user_id": "user_7429a56d",
+    "timestamp": "2026-09-08T02:51:35Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_5b41be3d94",
+    "workspace_id": "ws_9cbc74f2",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_shared",
+    "user_id": "user_8423758e",
+    "timestamp": "2026-09-08T04:38:46Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_8b049c5053",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "guide_viewed",
+    "user_id": "user_04304c0d",
+    "timestamp": "2026-09-08T06:50:29Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_f89cf039bc",
+    "workspace_id": "ws_ce562f5d",
+    "company_name": "Cobalt Financial",
+    "event_type": "login",
+    "user_id": "user_3b2f3794",
+    "timestamp": "2026-09-08T21:20:06Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_310c05a8d2",
+    "workspace_id": "ws_35f9fed5",
+    "company_name": "Gladwell Education",
+    "event_type": "guide_created",
+    "user_id": "user_0bb97af3",
+    "timestamp": "2026-09-08T21:26:25Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_37cee19a47",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_shared",
+    "user_id": "user_12a4af9b",
+    "timestamp": "2026-09-08T22:49:04Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_89771684ed",
+    "workspace_id": "ws_823ac462",
+    "company_name": "Alderman Freight",
+    "event_type": "login",
+    "user_id": "user_f14f9cb4",
+    "timestamp": "2026-09-08T22:50:09Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_079b009036",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "guide_viewed",
+    "user_id": "user_7925764a",
+    "timestamp": "2026-09-08T23:13:56Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_59a9977063",
+    "workspace_id": "ws_dae7cd82",
+    "company_name": "Northfield Bank",
+    "event_type": "login",
+    "user_id": "user_d2f582bc",
+    "timestamp": "2026-09-08T23:29:07Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_f2b75a7c3a",
+    "workspace_id": "ws_bedc7c0d",
+    "company_name": "Fernhill Energy",
+    "event_type": "guide_created",
+    "user_id": "user_d4416efe",
+    "timestamp": "2026-09-09T03:38:17Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_207f508c0a",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_created",
+    "user_id": "user_bdb9305f",
+    "timestamp": "2026-09-09T04:47:17Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_ced4d23946",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "login",
+    "user_id": "user_559b6af6",
+    "timestamp": "2026-09-09T05:15:33Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_44d8a12354",
+    "workspace_id": "ws_9cbc74f2",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_viewed",
+    "user_id": "user_63fd836b",
+    "timestamp": "2026-09-09T19:23:59Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_323ca2b733",
+    "workspace_id": "ws_ee6d7126",
+    "company_name": "Sable Robotics",
+    "event_type": "guide_viewed",
+    "user_id": "user_df2f4fc5",
+    "timestamp": "2026-09-09T21:19:57Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_d9056b2be2",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "guide_viewed",
+    "user_id": "user_7429a56d",
+    "timestamp": "2026-09-09T23:08:40Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_8f56245d13",
+    "workspace_id": "ws_72b2b083",
+    "company_name": "Thistle & Vine Events",
+    "event_type": "guide_viewed",
+    "user_id": "user_e4eaf7d8",
+    "timestamp": "2026-09-10T00:30:37Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_6442aac6b5",
+    "workspace_id": "ws_483b2a74",
+    "company_name": "Foxglove Media",
+    "event_type": "login",
+    "user_id": "user_027ebdb6",
+    "timestamp": "2026-09-10T00:46:46Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_938da4b29a",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_shared",
+    "user_id": "user_817b2c09",
+    "timestamp": "2026-09-10T00:51:29Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_114b80eed0",
+    "workspace_id": "ws_69b6e473",
+    "company_name": "Cobalt Financial",
+    "event_type": "login",
+    "user_id": "user_a9bb956a",
+    "timestamp": "2026-09-10T01:49:20Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_24151a199c",
+    "workspace_id": "ws_0ff044b3",
+    "company_name": "Crestwood Staffing",
+    "event_type": "guide_created",
+    "user_id": "user_20a0bd02",
+    "timestamp": "2026-09-10T06:25:59Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_4a09825914",
+    "workspace_id": "ws_ce562f5d",
+    "company_name": "Cobalt Financial",
+    "event_type": "guide_created",
+    "user_id": "user_33452125",
+    "timestamp": "2026-09-10T08:04:36Z",
+    "plan_tier": "Free"
+  },
+  {
+    "event_id": "evt_d1d6d5efb9",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "guide_shared",
+    "user_id": "user_c1d50514",
+    "timestamp": "2026-09-10T19:49:15Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_917807e578",
+    "workspace_id": "ws_99d45316",
+    "company_name": "Emberton Foods",
+    "event_type": "guide_shared",
+    "user_id": "user_f706ca48",
+    "timestamp": "2026-09-11T05:45:55Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_ff1e73ddc8",
+    "workspace_id": "ws_72d3375b",
+    "company_name": "Vantage Point Realty",
+    "event_type": "guide_shared",
+    "user_id": "user_fdedd6a7",
+    "timestamp": "2026-09-11T21:10:36Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_cfa8e98a2c",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_viewed",
+    "user_id": "user_a48d3a0b",
+    "timestamp": "2026-09-11T21:42:40Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_e4ff2fc055",
+    "workspace_id": "ws_58c4f123",
+    "company_name": "Marlowe & Reed",
+    "event_type": "guide_viewed",
+    "user_id": "user_a9c26637",
+    "timestamp": "2026-09-12T00:58:16Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_dba51439c7",
+    "workspace_id": "ws_01103b93",
+    "company_name": "Quarrystone Consulting",
+    "event_type": "guide_shared",
+    "user_id": "user_3e59b9c7",
+    "timestamp": "2026-09-12T01:25:18Z",
+    "plan_tier": "Enterprise"
+  },
+  {
+    "event_id": "evt_3b6a15e757",
+    "workspace_id": "ws_51c7948b",
+    "company_name": "Harborview Health",
+    "event_type": "guide_shared",
+    "user_id": "user_cea0517c",
+    "timestamp": "2026-09-12T03:23:34Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_3ddc791c83",
+    "workspace_id": "ws_c2301a6d",
+    "company_name": "Brightside Logistics",
+    "event_type": "login",
+    "user_id": "user_3b48dca8",
+    "timestamp": "2026-09-12T03:29:31Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_46fccb3d07",
+    "workspace_id": "ws_7f68273c",
+    "company_name": "Ashgrove Legal",
+    "event_type": "guide_viewed",
+    "user_id": "user_80f70953",
+    "timestamp": "2026-09-13T04:12:56Z",
+    "plan_tier": "Pro"
+  },
+  {
+    "event_id": "evt_3346a34ad5",
+    "workspace_id": "ws_690e9f5d",
+    "company_name": "Nimbus Analytics",
+    "event_type": "login",
+    "user_id": "user_559b6af6",
+    "timestamp": "2026-09-13T07:15:00Z",
+    "plan_tier": "Free"
+  }
+]

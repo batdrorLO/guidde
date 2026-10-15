@@ -1,0 +1,22 @@
+{
+  "name": "account-health-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,magenta \"npm run start:dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "npm run build -w backend && npm run build -w frontend",
+    "test": "npm test -w backend",
+    "typecheck": "npm run typecheck -w backend && npm run typecheck -w frontend"
+  },
+  "devDependencies": {
+    "concurrently": "9.1.2"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true,
+    "fsevents@2.3.3": true
+  }
+}
