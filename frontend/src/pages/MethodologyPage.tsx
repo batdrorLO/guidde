@@ -44,7 +44,7 @@ export function MethodologyPage() {
         <h1 className="text-2xl font-semibold text-slate-900">How health is scored</h1>
         <p className="mt-1 text-sm text-slate-500">
           Currently: the last <strong>{N} days</strong> ({formatDay(w.start)} – {formatDate(w.end)}), minimum tenure{' '}
-          <strong>{minimumTenureDays} days</strong>. Change both in the bar above. Export covers {formatDate(dq.data.windowStart)} –{' '}
+          <strong>{minimumTenureDays} days</strong>. Change both with the filters on the Accounts page. Export covers {formatDate(dq.data.windowStart)} –{' '}
           {formatDate(dq.data.asOf)}.
         </p>
       </div>

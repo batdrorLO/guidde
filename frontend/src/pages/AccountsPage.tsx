@@ -4,6 +4,9 @@ import { api, useApi } from '../api/client';
 import type { AccountStatus, SortKey } from '../api/types';
 import { AccountsTable } from '../components/AccountsTable';
 import { Filters, type FilterValues } from '../components/Filters';
+import { HealthScoreInfo } from '../components/HealthScoreInfo';
+import { PeriodSelect } from '../components/PeriodSelect';
+import { TenureInput } from '../components/TenureInput';
 import { ErrorBox, Loading } from '../components/Status';
 import { SummaryTiles } from '../components/SummaryTiles';
 import { useScoringSettings } from '../lib/settings';
@@ -68,7 +71,10 @@ export function AccountsPage() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-semibold text-slate-900">Account health</h1>
+          <div className="flex items-center gap-2">
+            <h1 className="text-2xl font-semibold text-slate-900">Account health</h1>
+            <HealthScoreInfo />
+          </div>
           <p className="mt-1 text-sm text-slate-500">
             Where to focus this week. Sorted by priority: At Risk first (including accounts a rule forced there), then
             Watch, then Healthy; within each, low score × high ARR first. New accounts aren’t scored and come last.
@@ -122,7 +128,10 @@ export function AccountsPage() {
               { replace: true },
             )
           }
-        />
+        >
+          <PeriodSelect />
+          <TenureInput />
+        </Filters>
         <label className="flex items-center gap-2 text-sm text-slate-500">
           Sort by
           <select

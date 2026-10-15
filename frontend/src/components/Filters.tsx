@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 
 const select =
   'rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 shadow-sm focus:border-slate-400 focus:outline-none';
@@ -15,11 +15,13 @@ export function Filters({
   csms,
   onChange,
   onReset,
+  children,
 }: {
   values: FilterValues;
   csms: string[];
   onChange: (key: keyof FilterValues, value: string) => void;
   onReset: () => void;
+  children?: ReactNode;
 }) {
   // Debounce the search box so typing doesn't refetch on every keystroke.
   const [q, setQ] = useState(values.q);
@@ -64,6 +66,7 @@ export function Filters({
           </option>
         ))}
       </select>
+      {children}
       {active && (
         <button type="button" onClick={onReset} className="px-2 text-sm text-slate-500 hover:text-slate-900">
           Clear filters
