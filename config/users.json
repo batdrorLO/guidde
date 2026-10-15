@@ -1,0 +1,20 @@
+[
+  {
+    "email": "admin.demo@example.com",
+    "name": "Admin Demo",
+    "role": "admin",
+    "passwordHash": "$2b$12$VPcTuz2mrEbQVxp.UKc0W.Vwjnu4EjYv/kDY9Biv4VjhRNlhAFQBO"
+  },
+  {
+    "email": "cs.demo@example.com",
+    "name": "CS Demo",
+    "role": "cs",
+    "passwordHash": "$2b$12$pPvrdw8ksoZfINH5xetsRuEDlNcW5e5YwrV/3Q85HjUw3yxJFAyLm"
+  },
+  {
+    "email": "sales.demo@example.com",
+    "name": "Sales Demo (no access)",
+    "role": "sales",
+    "passwordHash": "$2b$12$jiVIveAVstrmvgU7M1AzSu.GakQvEFtKxAiPuz1ShzdeFWVvoepuq"
+  }
+]

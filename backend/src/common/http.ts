@@ -7,6 +7,7 @@ import {
   HttpStatus,
   Logger,
 } from '@nestjs/common';
+import type { AuthUser } from '../auth/user.store';
 import { AppException, type ErrorBody } from './errors';
 
 // Minimal shapes of the Express objects we touch (avoids pulling in @types/express).
@@ -14,7 +15,10 @@ export interface HttpRequest {
   method: string;
   originalUrl: string;
   headers: Record<string, string | string[] | undefined>;
+  ip?: string;
   requestId?: string;
+  /** Set by AuthGuard once the session is verified. */
+  user?: AuthUser;
 }
 export interface HttpResponse {
   statusCode: number;
@@ -36,11 +40,15 @@ export function requestLogger(req: HttpRequest, res: HttpResponse, next: () => v
   const id = (typeof incoming === 'string' && incoming.slice(0, 64)) || randomUUID().slice(0, 8);
   req.requestId = id;
   res.setHeader('x-request-id', id);
+  // Responses are per-user and confidential: never let a browser or proxy cache them,
+  // so nothing is readable from cache after sign-out on a shared machine.
+  res.setHeader('Cache-Control', 'no-store');
 
   const started = process.hrtime.bigint();
   res.on('finish', () => {
     const ms = Number(process.hrtime.bigint() - started) / 1e6;
-    const line = `${req.method} ${req.originalUrl} ${res.statusCode} ${ms.toFixed(1)}ms [${id}]`;
+    const who = req.user ? ` ${req.user.email}` : '';
+    const line = `${req.method} ${req.originalUrl} ${res.statusCode} ${ms.toFixed(1)}ms [${id}]${who}`;
     if (res.statusCode >= 500) httpLogger.error(line);
     else if (res.statusCode >= 400) httpLogger.warn(line);
     else httpLogger.log(line);

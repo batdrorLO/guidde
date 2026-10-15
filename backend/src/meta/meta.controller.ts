@@ -1,4 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
+import { Public } from '../auth/auth.guard';
 import { DatasetService } from '../data/dataset.service';
 import { HealthService } from '../health/health.service';
 
@@ -10,13 +11,14 @@ export class MetaController {
   ) {}
 
   /**
-   * Liveness + data readiness. Always 200 while the process is up, so the UI can
-   * tell "API down" apart from "API up but the export is broken".
+   * Liveness + data readiness, for uptime checks. Public, so it says only whether
+   * data is loaded; the reason (file paths etc.) goes to signed-in users and the logs.
    */
+  @Public()
   @Get('status')
   status() {
-    const data = this.data.status();
-    return { status: data.loaded ? 'ok' : 'degraded', data };
+    const { loaded } = this.data.status();
+    return { status: loaded ? 'ok' : 'degraded', data: { loaded } };
   }
 
   /** Portfolio totals per tier, CSM list, snapshot date. */

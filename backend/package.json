@@ -7,7 +7,8 @@
     "start": "node dist/main.js",
     "start:dev": "nest start --watch",
     "typecheck": "tsc --noEmit -p tsconfig.json",
-    "test": "jest"
+    "test": "jest",
+    "user": "node scripts/user.mjs"
   },
   "dependencies": {
     "@nestjs/common": "11.2.7",

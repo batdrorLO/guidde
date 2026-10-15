@@ -1,4 +1,6 @@
 import 'reflect-metadata';
+import fs from 'node:fs';
+import path from 'node:path';
 import { ConsoleLogger, Logger, type LogLevel } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
@@ -14,6 +16,21 @@ function logLevels(level = process.env.LOG_LEVEL ?? 'info'): LogLevel[] {
   return order.slice(0, cut);
 }
 
+/** Load the nearest .env above this file (repo root), if any. Real env vars take precedence. */
+function loadDotEnv() {
+  for (let dir = __dirname; ; dir = path.dirname(dir)) {
+    const file = path.join(dir, '.env');
+    if (fs.existsSync(file)) {
+      const before = { ...process.env };
+      process.loadEnvFile(file);
+      Object.assign(process.env, before);
+      return file;
+    }
+    if (path.dirname(dir) === dir) return null;
+  }
+}
+const envFile = loadDotEnv();
+
 const logger = new ConsoleLogger({
   json: process.env.LOG_FORMAT === 'json',
   logLevels: logLevels(),
@@ -23,14 +40,24 @@ const bootLog = new Logger('Bootstrap');
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { logger });
   app.setGlobalPrefix('api');
-  app.enableCors({ origin: process.env.CORS_ORIGIN ?? 'http://localhost:5173', exposedHeaders: ['x-request-id'] });
+  // credentials: the browser must send the session cookie when the UI is served from another origin.
+  app.enableCors({
+    origin: process.env.CORS_ORIGIN ?? 'http://localhost:5173',
+    credentials: true,
+    exposedHeaders: ['x-request-id'],
+  });
+  // Behind a load balancer, trust X-Forwarded-For so sign-in lockouts see real client IPs.
+  if (process.env.TRUST_PROXY) app.getHttpAdapter().getInstance().set('trust proxy', process.env.TRUST_PROXY);
   app.use(requestLogger);
   app.useGlobalFilters(new AllExceptionsFilter());
   app.enableShutdownHooks();
 
   const port = Number(process.env.PORT ?? 3001);
   await app.listen(port);
-  bootLog.log(`API listening on http://localhost:${port}/api (log level: ${process.env.LOG_LEVEL ?? 'info'})`);
+  bootLog.log(
+    `API listening on http://localhost:${port}/api (log level: ${process.env.LOG_LEVEL ?? 'info'}` +
+      `${envFile ? `, env from ${envFile}` : ''})`,
+  );
 }
 
 // Last-resort handlers: make sure nothing fails silently.

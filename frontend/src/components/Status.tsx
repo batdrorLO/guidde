@@ -10,6 +10,7 @@ const TITLES: Record<string, string> = {
   timeout: 'The server is taking too long',
   account_not_found: 'Account not found',
   invalid_query: 'That filter isn’t valid',
+  access_denied: 'No access',
 };
 
 /** Shows what went wrong, what to do about it, and a reference to find it in the server logs. */

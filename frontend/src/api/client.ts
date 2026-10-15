@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import type { AccountDetail, AccountHealth, DataQuality, PortfolioSummary, ScoringConfig } from './types';
+import type { AccountDetail, AccountHealth, AuthUser, DataQuality, PortfolioSummary, ScoringConfig } from './types';
 
 const BASE = import.meta.env.VITE_API_URL ?? '/api';
 const TIMEOUT_MS = 15_000;
@@ -20,22 +20,40 @@ export class ApiError extends Error {
   }
 }
 
+/**
+ * Called when a data request comes back 401 (session expired, signed out elsewhere,
+ * account removed), so the app can drop back to the sign-in screen with the reason.
+ */
+type SessionLostListener = (err: ApiError) => void;
+const sessionLostListeners = new Set<SessionLostListener>();
+export function onSessionLost(listener: SessionLostListener): () => void {
+  sessionLostListeners.add(listener);
+  return () => sessionLostListeners.delete(listener);
+}
+
 const UNREACHABLE_HINT = 'Make sure the backend is running (npm run dev starts it on port 3001), then retry.';
 
-async function get<T>(path: string): Promise<T> {
+async function request<T>(method: 'GET' | 'POST', path: string, body?: unknown): Promise<T> {
   const url = BASE + path;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
 
   let res: Response;
   try {
-    res = await fetch(url, { signal: controller.signal, headers: { accept: 'application/json' } });
+    res = await fetch(url, {
+      method,
+      signal: controller.signal,
+      // The session lives in an httpOnly cookie; "include" also sends it when the API is on another origin.
+      credentials: 'include',
+      headers: { accept: 'application/json', ...(body !== undefined && { 'content-type': 'application/json' }) },
+      body: body === undefined ? undefined : JSON.stringify(body),
+    });
   } catch (err) {
     const timedOut = controller.signal.aborted;
     const e = timedOut
       ? new ApiError(0, 'timeout', 'The server took too long to respond.', 'Try again in a moment.')
       : new ApiError(0, 'network_error', "Can't reach the Account Health API.", UNREACHABLE_HINT);
-    console.error(`[api] GET ${url} failed: ${e.code}`, err);
+    console.error(`[api] ${method} ${url} failed: ${e.code}`, err);
     throw e;
   } finally {
     clearTimeout(timer);
@@ -50,17 +68,35 @@ async function get<T>(path: string): Promise<T> {
         ? // The Vite dev proxy answers with an empty 5xx when the backend is down.
           new ApiError(res.status, 'api_unavailable', "The Account Health API isn't responding.", UNREACHABLE_HINT, requestId)
         : new ApiError(res.status, `http_${res.status}`, `The request failed (HTTP ${res.status}).`, undefined, requestId);
-    console.error(`[api] GET ${url} → ${res.status} ${e.code}: ${e.message}`, { requestId: e.requestId });
+    // A 401 on /auth/* is part of signing in (e.g. wrong password), not a lost session.
+    if (res.status === 401 && !path.startsWith('/auth/')) {
+      console.warn(`[api] ${method} ${url} → 401 ${e.code}: session lost`);
+      sessionLostListeners.forEach((l) => l(e));
+    } else if (path.startsWith('/auth/') && res.status < 500) {
+      // Not signed in yet, wrong password, no access: expected outcomes shown in the UI, not bugs.
+      console.info(`[api] ${method} ${url} → ${res.status} ${e.code}`);
+    } else {
+      console.error(`[api] ${method} ${url} → ${res.status} ${e.code}: ${e.message}`, { requestId: e.requestId });
+    }
     throw e;
   }
 
   try {
     return (await res.json()) as T;
   } catch (err) {
-    console.error(`[api] GET ${url}: response was not valid JSON`, err);
+    console.error(`[api] ${method} ${url}: response was not valid JSON`, err);
     throw new ApiError(res.status, 'bad_response', 'The server sent a response the app could not read.', 'Try again. If it keeps happening, report it.', requestId);
   }
 }
+
+const get = <T>(path: string) => request<T>('GET', path);
+
+export const auth = {
+  me: () => get<{ user: AuthUser }>('/auth/me'),
+  login: (email: string, password: string) =>
+    request<{ user: AuthUser; expiresAt: string }>('POST', '/auth/login', { email, password }),
+  logout: () => request<{ ok: true }>('POST', '/auth/logout'),
+};
 
 export const api = {
   accounts: (params: URLSearchParams) => get<AccountHealth[]>(`/accounts?${params}`),

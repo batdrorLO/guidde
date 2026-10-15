@@ -7,6 +7,12 @@ export type HealthTier = 'healthy' | 'watch' | 'at_risk';
 export type Severity = 'info' | 'warning' | 'error';
 export type SortKey = 'priority' | 'score' | 'arr' | 'name' | 'lastActivity';
 
+export interface AuthUser {
+  email: string;
+  name: string;
+  role: string;
+}
+
 export const EVENT_TYPES: EventType[] = ['guide_created', 'guide_viewed', 'guide_shared', 'user_invited', 'login'];
 
 export interface PillarScore {

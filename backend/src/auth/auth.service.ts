@@ -120,6 +120,11 @@ export class AuthService {
   }
 
   private recordFailure(key: string) {
+    // Bound memory if someone sprays random emails: drop entries whose window has passed.
+    if (this.failures.size > 10_000) {
+      const cutoff = Date.now() - this.cfg.lockoutMinutes * 60_000;
+      for (const [k, v] of this.failures) if (v.firstAt < cutoff) this.failures.delete(k);
+    }
     const f = this.failures.get(key);
     if (f) f.count++;
     else this.failures.set(key, { count: 1, firstAt: Date.now() });
