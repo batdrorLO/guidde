@@ -51,7 +51,14 @@ export function readCookie(req: HttpRequest, name: string): string | undefined {
   if (typeof header !== 'string') return undefined;
   for (const part of header.split(';')) {
     const i = part.indexOf('=');
-    if (i > 0 && part.slice(0, i).trim() === name) return decodeURIComponent(part.slice(i + 1).trim());
+    if (i > 0 && part.slice(0, i).trim() === name) {
+      // A malformed escape (e.g. "%") is treated as no cookie, so the caller gets a 401, not a 500.
+      try {
+        return decodeURIComponent(part.slice(i + 1).trim());
+      } catch {
+        return undefined;
+      }
+    }
   }
   return undefined;
 }

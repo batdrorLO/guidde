@@ -64,6 +64,14 @@ describe('JWT authentication (HTTP)', () => {
     expect(await json(res)).toMatchObject({ code: 'unauthenticated' });
   });
 
+  it('treats a malformed session cookie as signed out (401, not 500)', async () => {
+    for (const cookie of ['ah_session=%', 'ah_session=%E0%A4%A', 'other=1; ah_session=%zz']) {
+      const res = await getWith('/accounts', { cookie });
+      expect(res.status).toBe(401);
+      expect(await json(res)).toMatchObject({ code: 'unauthenticated' });
+    }
+  });
+
   it('keeps /status public but without details', async () => {
     const res = await getWith('/status');
     expect(res.status).toBe(200);

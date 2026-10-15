@@ -1,4 +1,8 @@
+import 'reflect-metadata';
+import { HttpStatus } from '@nestjs/common';
+import { AccountsController } from '../src/accounts/accounts.controller';
 import { DAY_MS, isoDay } from '../src/common/dates';
+import { AppException } from '../src/common/errors';
 import type { Account, AccountRecord, Dataset, EventType, PlanTier, UsageEvent } from '../src/common/types';
 import type { DatasetService } from '../src/data/dataset.service';
 import {
@@ -15,6 +19,7 @@ import {
 } from '../src/health/health-scoring';
 import { HealthService } from '../src/health/health.service';
 import { DEFAULT_SETTINGS, SCORING, parseScoringSettings, type ScoringSettings } from '../src/health/scoring.config';
+import { settingsFromQuery } from '../src/health/settings.query';
 
 // Reference date = latest event in the (synthetic) export. Events are placed at noon UTC.
 const AS_OF = new Date('2026-09-13T12:00:00Z');
@@ -448,5 +453,220 @@ describe('HealthService (list, summary and detail stay consistent)', () => {
     expect(service.detail('brand-new', settings(30, 10))!.eligible).toBe(true);
     expect(service.summary(settings(30, 10)).statuses.onboarding.count).toBe(0);
     expect(service.summary(settings(30, 30)).statuses.onboarding.count).toBe(1);
+  });
+});
+
+// ---------- Settings coming in over HTTP ----------
+
+describe('settingsFromQuery (the ?days=&minTenure= the dashboard sends)', () => {
+  const thrown = (fn: () => unknown): AppException => {
+    try {
+      fn();
+    } catch (e) {
+      return e as AppException;
+    }
+    throw new Error('expected an AppException');
+  };
+
+  it('passes valid values through and falls back to the defaults when absent', () => {
+    expect(settingsFromQuery({})).toEqual(DEFAULT_SETTINGS);
+    expect(settingsFromQuery({ days: '', minTenure: '' })).toEqual(DEFAULT_SETTINGS);
+    expect(settingsFromQuery({ days: '60', minTenure: '0' })).toEqual(settings(60, 0));
+  });
+
+  it('rejects an out-of-range period with a 400 invalid_setting that names the presets', () => {
+    const err = thrown(() => settingsFromQuery({ days: '6' }));
+    expect(err).toBeInstanceOf(AppException);
+    expect(err.getStatus()).toBe(HttpStatus.BAD_REQUEST);
+    expect(err.code).toBe('invalid_setting');
+    expect(err.message).toContain('analysis period');
+    expect(err.hint).toContain(SCORING.lookback.presets.join(', '));
+  });
+
+  it('rejects a bad minimum tenure with its own message', () => {
+    const err = thrown(() => settingsFromQuery({ minTenure: '3.5' }));
+    expect(err.code).toBe('invalid_setting');
+    expect(err.message).toContain('minimum tenure');
+    expect(err.hint).toContain('whole number');
+  });
+});
+
+// ---------- Analysis period changes the score ----------
+
+describe('analysis period effect on the score', () => {
+  it('scales value-loop targets to the period, so the same events score differently', () => {
+    const evs = [ev(1, 'guide_created'), ev(2, 'guide_viewed')];
+    const at7 = pillar(scoreAccount(record(evs), ctx, settings(7)), 'valueLoop');
+    const at30 = pillar(scoreAccount(record(evs), ctx, settings(30)), 'valueLoop');
+    // Pro targets at 7 days: 3×7/30 = 0.7 made, 4×7/30 ≈ 0.93 viewed → both met.
+    expect(at7.points).toBe(30);
+    // At 30 days: 1/3 × 15 + 1/4 × 15.
+    expect(at30.points).toBeCloseTo(5 + 3.8, 1);
+  });
+
+  it('measures retention against the users active in the selected period', () => {
+    // Three users: two active this week, one only 20 days ago.
+    const evs = [ev(1, 'login', 'a'), ev(2, 'login', 'b'), ev(20, 'login', 'c')];
+    expect(pillar(scoreAccount(record(evs), ctx, settings(7)), 'retention').measured).toBe('2 of 3 users (66.7%)');
+    expect(pillar(scoreAccount(record(evs), ctx, settings(30)), 'retention').measured).toBe('3 of 3 users (100%)');
+  });
+
+  it('re-evaluates the plan activity threshold for the period', () => {
+    // A Pro account active only in the last 7 days: 100% over 7 days, 23.3% over 30.
+    const evs = Array.from({ length: 7 }, (_, d) => ev(d, 'guide_viewed'));
+    const codes = (n: number) => scoreAccount(record(evs), ctx, settings(n)).overrides.map((o) => o.code);
+    expect(codes(7)).not.toContain('activity_below_plan_threshold');
+    expect(codes(30)).toContain('activity_below_plan_threshold');
+  });
+});
+
+// ---------- Plan thresholds: exact boundaries ----------
+
+describe('plan At Risk threshold boundary', () => {
+  // A 20-day period makes every threshold a whole number of days: Free 3, Pro 5, Enterprise 8.
+  it.each(['Free', 'Pro', 'Enterprise'] as const)('%s: exactly at the threshold is not forced to At Risk; one day below is', (plan) => {
+    const atThreshold = SCORING.planExpectations[plan].atRiskActivityRate * 20;
+    const active = (n: number) => Array.from({ length: n }, (_, d) => ev(d, 'login', 'u1', plan));
+    const codes = (n: number) =>
+      scoreAccount(record(active(n), { planTier: plan }), ctx, settings(20)).overrides.map((o) => o.code);
+    expect(codes(atThreshold)).not.toContain('activity_below_plan_threshold');
+    expect(codes(atThreshold - 1)).toContain('activity_below_plan_threshold');
+  });
+});
+
+// ---------- Minimum tenure setting ----------
+
+describe('minimum tenure setting', () => {
+  it('a 0-day minimum scores an account whose contract starts on the reference day', () => {
+    const r = record(healthyEvents(), { contractStartDate: REF_DAY });
+    expect(scoreAccount(r, ctx).status).toBe('onboarding');
+    const h = scoreAccount(r, ctx, settings(30, 0));
+    expect(h).toMatchObject({ eligible: true, tenureDays: 0 });
+    expect(h.score).not.toBeNull();
+  });
+
+  it('an excluded account keeps its downgrade flag as context but with no penalty, and no dormant flag', () => {
+    const evs = [ev(40, 'login', 'u1', 'Pro'), ev(35, 'login', 'u1', 'Free')];
+    const h = scoreAccount(record(evs, { planTier: 'Pro', contractStartDate: addDays(REF_DAY, -10) }), ctx);
+    expect(h.status).toBe('onboarding');
+    expect(h.overrides).toEqual([]);
+    const codes = h.flags.map((f) => f.code);
+    expect(codes).toContain('downgrade');
+    expect(codes).not.toContain('dormant');
+    expect(h.flags.every((f) => f.penalty === 0)).toBe(true);
+  });
+});
+
+// ---------- Not enough data ----------
+
+describe('insufficient data exclusions', () => {
+  it('does not score an account whose plan is not recognised', () => {
+    const h = scoreAccount(record(healthyEvents(), { planTier: 'Platinum' as PlanTier }), ctx);
+    expect(h).toMatchObject({ eligible: false, status: 'insufficient_data', score: null, priority: null });
+    expect(h.exclusion?.reason).toBe('unknown_plan');
+  });
+
+  it('does not score anyone when no day in the period is covered by the export', () => {
+    const allGaps = { ...ctx, gapDays: Array.from({ length: 7 }, (_, i) => addDays(REF_DAY, -i)) };
+    const h = scoreAccount(record(healthyEvents()), allGaps, settings(7));
+    expect(h.window.observableDays).toBe(0);
+    expect(h).toMatchObject({ eligible: false, status: 'insufficient_data' });
+    expect(h.exclusion?.reason).toBe('no_observable_days');
+  });
+});
+
+// ---------- Momentum edge cases ----------
+
+describe('momentum edge cases', () => {
+  it('gives no momentum when the account was active before but not in the period', () => {
+    const evs = Array.from({ length: 10 }, (_, i) => ev(40 + i * 3, 'guide_viewed'));
+    const m = pillar(scoreAccount(record(evs), ctx), 'momentum');
+    expect(m).toMatchObject({ ratio: 0, points: 0, measured: 'no recent activity' });
+  });
+
+  it('smooths 1 event vs. none so growth stays finite (full credit, not infinity)', () => {
+    const m = pillar(scoreAccount(record([ev(1, 'guide_viewed')]), ctx), 'momentum');
+    // (1 + 1)/30 ÷ ((0 + 1)/60) = 4 → +300%.
+    expect(m.measured).toBe('+300%');
+    expect(m.ratio).toBe(1);
+  });
+
+  it('gives partial credit on a moderate decline (linear between −0% and −60%)', () => {
+    // (6 + 1)/30 ÷ ((19 + 1)/60) = 0.7 → halfway between 1.0 and 0.4.
+    const current = Array.from({ length: 6 }, (_, i) => ev(i * 4, 'guide_viewed'));
+    const baseline = Array.from({ length: 19 }, (_, i) => ev(30 + i * 3, 'guide_viewed'));
+    const m = pillar(scoreAccount(record([...current, ...baseline]), ctx), 'momentum');
+    expect(m.measured).toBe('-30%');
+    expect(m.ratio).toBeCloseTo(0.5, 5);
+    expect(m.points).toBe(10);
+  });
+});
+
+// ---------- How the status is explained ----------
+
+describe('status reason and summary', () => {
+  it('has no status reason when no rule applies', () => {
+    const h = scoreAccount(record(healthyEvents()), ctx);
+    expect(h.overrides).toEqual([]);
+    expect(h.statusReason).toBeNull();
+    expect(h.summary).toBe('Consistent, broad, steady usage.');
+  });
+
+  it('explains the gap when a rule moves the status away from the score tier', () => {
+    const h = scoreAccount(record(tenOfThirty('Enterprise'), { planTier: 'Enterprise' }), ctx);
+    expect(h.statusReason).toMatch(/^The score alone gives Healthy, but the status is At Risk\./);
+    expect(h.summary).toMatch(/^Activity below plan threshold/);
+  });
+
+  it('lists the rules without the "score alone" preamble when they agree with the score tier', () => {
+    const h = scoreAccount(record([]), ctx);
+    expect(h.scoreTier).toBe('at_risk');
+    expect(h.statusReason).not.toContain('score alone');
+    expect(h.statusReason).toContain('Dormant');
+  });
+
+  it('treats a negative ARR as zero when ranking', () => {
+    expect(priorityFor(50, -1_000)).toBe(priorityFor(50, 0));
+  });
+});
+
+// ---------- Queue order and the HTTP layer ----------
+
+describe('queue ordering and API filters', () => {
+  const ent = (name: string, arrUsd: number) =>
+    record(tenOfThirty('Enterprise'), { companyName: name, planTier: 'Enterprise', arrUsd });
+  const records = [
+    record(healthyEvents(), { companyName: 'Healthy Big', arrUsd: 900_000 }),
+    ent('Risk Small', 5_000),
+    ent('Risk Big', 500_000),
+    record(healthyEvents(), { companyName: 'New One', contractStartDate: addDays(REF_DAY, -3) }),
+  ];
+  const service = new HealthService({ get: () => ({ ...ctx, records, issues: [] }) as Dataset } as unknown as DatasetService);
+  const controller = new AccountsController(service);
+
+  it('ranks At Risk accounts by priority (bigger contract first) before any healthy account, whatever its ARR', () => {
+    expect(service.list().map((a) => a.companyName)).toEqual(['Risk Big', 'Risk Small', 'Healthy Big', 'New One']);
+  });
+
+  it('keeps unscored accounts last when sorting by score in either direction', () => {
+    for (const order of ['asc', 'desc'] as const) {
+      const rows = service.list({ sort: 'score', order });
+      expect(rows[rows.length - 1].companyName).toBe('New One');
+    }
+  });
+
+  it('accepts the legacy ?tier= alias for ?status=', () => {
+    expect(controller.list({ tier: 'at_risk' }).map((a) => a.slug)).toEqual(controller.list({ status: 'at_risk' }).map((a) => a.slug));
+  });
+
+  it('applies ?days= and ?minTenure= from the query string', () => {
+    const row = controller.list({ days: '7', minTenure: '0' }).find((a) => a.companyName === 'New One')!;
+    expect(row.window.lookbackDays).toBe(7);
+    expect(row.eligible).toBe(true);
+  });
+
+  it('rejects an unknown status and an invalid period with a 400', () => {
+    expect(() => controller.list({ status: 'doomed' })).toThrow(AppException);
+    expect(() => controller.list({ days: '365' })).toThrow(AppException);
   });
 });
